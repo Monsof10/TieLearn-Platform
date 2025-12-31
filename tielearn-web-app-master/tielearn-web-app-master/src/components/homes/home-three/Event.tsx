@@ -38,7 +38,7 @@ const Event = () => {
                            <div className="event__meta-two">
                               <ul className="list-wrap">
                                  <li><i className="flaticon-placeholder"></i>{item.location}</li>
-                                 <li><i className="skillgro-three-o-clock-clock"></i>{item.time}</li>
+                                 <li><i className="TieLearn -three-o-clock-clock"></i>{item.time}</li>
                               </ul>
                            </div>
                         </div>
@@ -60,7 +60,7 @@ const Event = () => {
                               <div className="event__meta-two">
                                  <ul className="list-wrap">
                                     <li><i className="flaticon-placeholder"></i>{item.location}</li>
-                                    <li><i className="skillgro-three-o-clock-clock"></i>{item.time}</li>
+                                    <li><i className="TieLearn -three-o-clock-clock"></i>{item.time}</li>
                                  </ul>
                               </div>
                            </div>
@@ -71,7 +71,7 @@ const Event = () => {
             </div>
 
             <div className="event__bottom-content">
-               <h6 className="title">The Latest Events from skillgrow
+               <h6 className="title">The Latest Events from TieLearn w
                   <Link href="/events">View All <BtnArrow /></Link>
                </h6>
             </div>

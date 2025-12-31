@@ -40,7 +40,7 @@ const Banner = () => {
                         </div>
                         <div className="banner__courses" data-aos="fade-up" data-aos-delay="1000">
                            <div className="icon">
-                              <i className="skillgro-closed-book"></i>
+                              <i className="TieLearn -closed-book"></i>
                            </div>
                            <h6 className="title">45+ <span>Courses</span></h6>
                         </div>

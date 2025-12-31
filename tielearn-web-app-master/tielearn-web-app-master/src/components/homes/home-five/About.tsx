@@ -56,7 +56,7 @@ const About = () => {
                         <Link href="/contact" className="btn arrow-btn">Start Free Trial <BtnArrow /></Link>
                         <div className="about__contact">
                            <div className="icon">
-                              <i className="skillgro-phone-call"></i>
+                              <i className="TieLearn -phone-call"></i>
                               <svg width="61" height="57" viewBox="0 0 61 57" fill="none" xmlns="http://www.w3.org/2000/svg">
                                  <path fillRule="evenodd" clipRule="evenodd" d="M33.8271 1.03084C45.4231 1.45238 55.2747 9.02544 58.7825 19.8885C62.2129 30.5119 58.2066 41.852 49.1968 48.6277C39.3708 56.0171 26.0908 58.9731 15.8124 52.2032C4.34981 44.6532 -2.0548 30.6516 2.45508 17.8409C6.75857 5.61644 20.666 0.552417 33.8271 1.03084Z" stroke="currentcolor" strokeWidth="2" />
                               </svg>

@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './ChatBot.css';
-import chatbotData from '../../data/chatbot.js';
-import { getOllamaResponse } from '../../utils/ollamaUtils';
+import chatbotData from '../../src/data/chatbotskillgro';
+import { getOllamaResponse } from '../ollamaUtils';
 
 // Define courses at component scope
 const courses = [

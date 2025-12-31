@@ -2,7 +2,7 @@ import StudentProfile from "@/dashboard/student-dashboard/student-profile";
 import Wrapper from "@/layouts/Wrapper";
 
 export const metadata = {
-   title: "Student Profile SkillGro - Online Courses & Education React Next js Template",
+   title: "Student Profile TieLearn  ",
 };
 const index = () => {
    return (

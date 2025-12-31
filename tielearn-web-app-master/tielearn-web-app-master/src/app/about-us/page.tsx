@@ -2,7 +2,7 @@ import AboutUs from "@/components/inner-pages/about-us";
 import Wrapper from "@/layouts/Wrapper";
 
 export const metadata = {
-   title: "About Us SkillGro - Online Courses & Education React Next js Template",
+   title: "About Us TieLearn  ",
 };
 const page = () => {
    return (

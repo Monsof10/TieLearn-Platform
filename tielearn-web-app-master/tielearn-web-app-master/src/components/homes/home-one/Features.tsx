@@ -13,7 +13,7 @@ const Features = () => {
                 Débutez votre chemin vers le succès aujourd&apos;hui !
               </h2>
               <p>
-                Découvrez comment TieLearn transforme votre apprentissage avec
+                Découvrez comment TieLearn  transforme votre apprentissage avec
                 des cours qui correspondent à vos objectifs.
               </p>
             </div>

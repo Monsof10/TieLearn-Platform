@@ -32,7 +32,7 @@ const Choose = () => {
                         <div className="choose__list-wrap">
                            <div className="choose__list-item">
                               <div className="icon">
-                                 <i className="skillgro-profit"></i>
+                                 <i className="TieLearn -profit"></i>
                               </div>
                               <div className="content">
                                  <h4 className="title">Learn skills with 120k+</h4>

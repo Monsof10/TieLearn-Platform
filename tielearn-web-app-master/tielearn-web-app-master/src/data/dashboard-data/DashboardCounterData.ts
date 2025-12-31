@@ -8,37 +8,37 @@ interface DataType {
 const dashboard_count_data: DataType[] = [
    {
       id: 1,
-      icon: "skillgro-book",
+      icon: "TieLearn -book",
       count: 30,
       title: "ENROLLED COURSES",
    },
    {
       id: 2,
-      icon: "skillgro-tutorial",
+      icon: "TieLearn -tutorial",
       count: 10,
       title: "ACTIVE COURSES",
    },
    {
       id: 3,
-      icon: "skillgro-diploma-1",
+      icon: "TieLearn -diploma-1",
       count: 7,
       title: "COMPLETED COURSES",
    },
    {
       id: 4,
-      icon: "skillgro-group",
+      icon: "TieLearn -group",
       count: 160,
       title: "TOTAL STUDENTS",
    },
    {
       id: 5,
-      icon: "skillgro-notepad",
+      icon: "TieLearn -notepad",
       count: 30,
       title: "TOTAL COURSES",
    },
    {
       id: 6,
-      icon: "skillgro-dollar-currency-symbol",
+      icon: "TieLearn -dollar-currency-symbol",
       count: 29000,
       title: "TOTAL EARNINGS",
    },

@@ -33,7 +33,7 @@ const Event = () => {
                               <div className="event__meta-two">
                                  <ul className="list-wrap">
                                     <li><i className="flaticon-placeholder"></i>{item.location}</li>
-                                    <li><i className="skillgro-three-o-clock-clock"></i>{item.time}</li>
+                                    <li><i className="TieLearn -three-o-clock-clock"></i>{item.time}</li>
                                  </ul>
                               </div>
                            </div>

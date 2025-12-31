@@ -12,13 +12,13 @@ const Testimonial = () => {
                <div className="col-xl-5 col-lg-6 col-md-8">
                   <div className="section__title mb-50">
                      <span className="sub-title">Our Testimonials</span>
-                     <h2 className="title">What Students Think and Say About SkillGrow</h2>
+                     <h2 className="title">What Students Think and Say About TieLearn w</h2>
                   </div>
                </div>
                <div className="col-xl-7 col-lg-6 col-md-4">
                   <div className="testimonial__nav-two">
-                     <button className="testimonial-button-prev"><i className="skillgro-right-arrow"></i></button>
-                     <button className="testimonial-button-next"><i className="skillgro-right-arrow"></i></button>
+                     <button className="testimonial-button-prev"><i className="TieLearn -right-arrow"></i></button>
+                     <button className="testimonial-button-next"><i className="TieLearn -right-arrow"></i></button>
                   </div>
                </div>
             </div>

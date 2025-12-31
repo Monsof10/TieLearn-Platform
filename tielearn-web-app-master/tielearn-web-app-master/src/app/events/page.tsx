@@ -2,7 +2,7 @@ import Event from "@/components/inner-pages/events/event";
 import Wrapper from "@/layouts/Wrapper";
 
 export const metadata = {
-   title: "Event SkillGro - Online Courses & Education React Next js Template",
+   title: "Event TieLearn  ",
 };
 const page = () => {
    return (

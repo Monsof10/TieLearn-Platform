@@ -35,7 +35,7 @@ const HeaderFive = () => {
                               <div className="tgmenu__categories select-grp-two d-none d-md-block">
                                  <div className="dropdown">
                                     <button className="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                       <i className="skillgro-list"></i>
+                                       <i className="TieLearn -list"></i>
                                        Categories
                                     </button>
                                     <ul className="dropdown-menu">
@@ -73,7 +73,7 @@ const HeaderFive = () => {
                                     </li>
                                     <li className="header-contact">
                                        <div className="icon">
-                                          <i className="skillgro-phone-call"></i>
+                                          <i className="TieLearn -phone-call"></i>
                                        </div>
                                        <div className="content">
                                           <span>Call to Question</span>

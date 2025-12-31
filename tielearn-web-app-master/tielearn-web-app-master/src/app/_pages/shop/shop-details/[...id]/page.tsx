@@ -6,7 +6,7 @@ import HeaderOne from "@/layouts/headers/HeaderOne";
 import Wrapper from "@/layouts/Wrapper";
 
 export const metadata = {
-   title: "Shop Details SkillGro - Online Courses & Education React Next js Template",
+   title: "Shop Details TieLearn  ",
 };
 const index = ({ params }: { params: { id: number } }) => {
 

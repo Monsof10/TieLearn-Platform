@@ -12,7 +12,7 @@ const HeaderTopThree = () => {
                <div className="col-lg-6">
                   <ul className="tg-header__top-info list-wrap">
                      <li><Image src={icon_1} alt="Icon" /> <span>589 5th Ave, NY 10024, USA</span></li>
-                     <li><Image src={icon_2} alt="Icon" /> <Link href="mailto:info@skillgrodemo.com">info@skillgrodemo.com</Link></li>
+                     <li><Image src={icon_2} alt="Icon" /> <Link href="mailto:info@TieLearn demo.com">info@TieLearn demo.com</Link></li>
                   </ul>
                </div>
                <div className="col-lg-6">

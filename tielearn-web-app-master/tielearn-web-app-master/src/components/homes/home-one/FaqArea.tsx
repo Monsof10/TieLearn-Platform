@@ -46,7 +46,7 @@ const FaqArea = () => {
                 </h2>
               </div>
               <p>
-                Découvrez comment TieLearn peut transformer votre carrière grâce
+                Découvrez comment TieLearn  peut transformer votre carrière grâce
                 à une formation de qualité, des opportunités de stage, et un
                 accompagnement personnalisé.
               </p>

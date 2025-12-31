@@ -2,7 +2,7 @@ import StudentWishlist from "@/dashboard/student-dashboard/student-wishlist";
 import Wrapper from "@/layouts/Wrapper";
 
 export const metadata = {
-   title: "Student Wishlist SkillGro - Online Courses & Education React Next js Template",
+   title: "Student Wishlist TieLearn  ",
 };
 const index = () => {
    return (

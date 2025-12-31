@@ -18,8 +18,8 @@ const HeaderTopOne = ({ style }: any) => {
               </li>
               <li>
                 <Image src={icon_2} alt="Icon" />{' '}
-                <Link href="mailto:info@skillgrodemo.com">
-                  contact@tielearndigital.com
+                <Link href="mailto:info@TieLearn demo.com">
+                  contact@TieLearn digital.com
                 </Link>
               </li>
             </ul>
@@ -34,7 +34,7 @@ const HeaderTopOne = ({ style }: any) => {
                 <li>Suivez-nous sur :</li>
                 <li>
                   <Link
-                    href="https://www.linkedin.com/company/tielearn-digital/"
+                    href="https://www.linkedin.com/company/TieLearn -digital/"
                     target="_blank"
                   >
                     <i className="fab fa-linkedin-in"></i>
@@ -50,7 +50,7 @@ const HeaderTopOne = ({ style }: any) => {
                 </li>
                 <li>
                   <Link
-                    href="https://www.instagram.com/tielearn.digital/"
+                    href="https://www.instagram.com/TieLearn .digital/"
                     target="_blank"
                   >
                     <i className="fab fa-instagram"></i>

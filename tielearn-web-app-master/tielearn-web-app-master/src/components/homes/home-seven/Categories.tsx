@@ -16,25 +16,25 @@ interface DataType {
 const categories_data: DataType[] = [
    {
       id: 1,
-      icon: "skillgro-satchel",
+      icon: "TieLearn -satchel",
       title: "Business",
       tag: "2 Courses",
    },
    {
       id: 2,
-      icon: "skillgro-taxes",
+      icon: "TieLearn -taxes",
       title: "Tax Advisory",
       tag: "52 Courses",
    },
    {
       id: 3,
-      icon: "skillgro-finance",
+      icon: "TieLearn -finance",
       title: "Finance",
       tag: "44 Courses",
    },
    {
       id: 4,
-      icon: "skillgro-law",
+      icon: "TieLearn -law",
       title: "Law",
       tag: "32 Courses",
    },

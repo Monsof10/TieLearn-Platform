@@ -97,7 +97,7 @@ const menu_data: MenuItem[] = [
   {
     id: 3,
     title: 'À propos',
-    link: '/about',
+    link: '/about-us',
     // Removed sub_menus to disable dropdown
   },
   {

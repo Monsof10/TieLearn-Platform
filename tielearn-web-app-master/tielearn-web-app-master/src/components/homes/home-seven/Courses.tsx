@@ -58,7 +58,7 @@ const Courses = () => {
                         <div className="courses__item-bottom-three courses__item-bottom-five">
                            <ul className="list-wrap">
                               <li><i className="flaticon-book"></i>Lessons {item.lesson}</li>
-                              <li><i className="skillgro-group"></i>Students {item.student}</li>
+                              <li><i className="TieLearn -group"></i>Students {item.student}</li>
                            </ul>
                         </div>
                      </div>

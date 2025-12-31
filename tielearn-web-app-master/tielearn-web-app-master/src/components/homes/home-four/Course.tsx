@@ -46,8 +46,8 @@ const Course = () => {
                            <h2 className="title"><Link href="/course-details">{item.title}</Link></h2>
                            <div className="courses__item-bottom-three">
                               <ul className="list-wrap">
-                                 <li><i className="skillgro-closed-book"></i>{item.lesson}</li>
-                                 <li><i className="skillgro-group"></i>{item.student}</li>
+                                 <li><i className="TieLearn -closed-book"></i>{item.lesson}</li>
+                                 <li><i className="TieLearn -group"></i>{item.student}</li>
                               </ul>
                            </div>
                         </div>

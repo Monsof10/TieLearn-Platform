@@ -31,7 +31,7 @@ const Categories = () => {
                               <span className="name"><strong>{item.country}</strong>{item.course} Courses</span>
                            </div>
                            <div className="icon">
-                              <i className="skillgro-next-2"></i>
+                              <i className="TieLearn -next-2"></i>
                            </div>
                         </Link>
                      </div>

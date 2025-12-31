@@ -6,17 +6,17 @@
 *    | |    | | (_| | |_| | (_| (_) | | | |
 *    |_|    |_|\__,_|\__|_|\___\___/|_| |_|
 *
-*         https://www.skillgro.com
+*         https://www.TieLearn .com
 */
 
 @font-face {
-    font-family: "flaticon-skillgro-new";
-    src: url("flaticon_skillgro.woff2?1ef5b908031aa083bdbc72ac4c837d2e") format("woff2"),
-    url("flaticon_skillgro.woff?1ef5b908031aa083bdbc72ac4c837d2e") format("woff"),
+    font-family: "flaticon-TieLearn -new";
+    src: url("flaticon_skillgro.woff2") format("woff2"),
+         url("flaticon_skillgro.woff") format("woff"),
 }
 
-i[class^="skillgro-"]:before, i[class*=" skillgro-"]:before {
-    font-family: flaticon-skillgro-new !important;
+i[class^="TieLearn -"]:before, i[class*=" TieLearn -"]:before {
+    font-family: flaticon-TieLearn -new !important;
     font-style: normal;
     font-weight: normal !important;
     font-variant: normal;
@@ -26,340 +26,340 @@ i[class^="skillgro-"]:before, i[class*=" skillgro-"]:before {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.skillgro-book:before {
+.TieLearn -book:before {
     content: "\f101";
 }
-.skillgro-lotus:before {
+.TieLearn -lotus:before {
     content: "\f102";
 }
-.skillgro-text-file:before {
+.TieLearn -text-file:before {
     content: "\f103";
 }
-.skillgro-happy-face:before {
+.TieLearn -happy-face:before {
     content: "\f104";
 }
-.skillgro-taxes:before {
+.TieLearn -taxes:before {
     content: "\f105";
 }
-.skillgro-vector:before {
+.TieLearn -vector:before {
     content: "\f106";
 }
-.skillgro-notepad:before {
+.TieLearn -notepad:before {
     content: "\f107";
 }
-.skillgro-writing:before {
+.TieLearn -writing:before {
     content: "\f108";
 }
-.skillgro-audio-book:before {
+.TieLearn -audio-book:before {
     content: "\f109";
 }
-.skillgro-financial-profit:before {
+.TieLearn -financial-profit:before {
     content: "\f10a";
 }
-.skillgro-development-plan:before {
+.TieLearn -development-plan:before {
     content: "\f10b";
 }
-.skillgro-smart-watch:before {
+.TieLearn -smart-watch:before {
     content: "\f10c";
 }
-.skillgro-browser:before {
+.TieLearn -browser:before {
     content: "\f10d";
 }
-.skillgro-heart:before {
+.TieLearn -heart:before {
     content: "\f10e";
 }
-.skillgro-mortarboard:before {
+.TieLearn -mortarboard:before {
     content: "\f10f";
 }
-.skillgro-stone:before {
+.TieLearn -stone:before {
     content: "\f110";
 }
-.skillgro-label:before {
+.TieLearn -label:before {
     content: "\f111";
 }
-.skillgro-menu:before {
+.TieLearn -menu:before {
     content: "\f112";
 }
-.skillgro-satchel:before {
+.TieLearn -satchel:before {
     content: "\f113";
 }
-.skillgro-law:before {
+.TieLearn -law:before {
     content: "\f114";
 }
-.skillgro-profit:before {
+.TieLearn -profit:before {
     content: "\f115";
 }
-.skillgro-ribbon:before {
+.TieLearn -ribbon:before {
     content: "\f116";
 }
-.skillgro-time:before {
+.TieLearn -time:before {
     content: "\f117";
 }
-.skillgro-book-1:before {
+.TieLearn -book-1:before {
     content: "\f118";
 }
-.skillgro-magnifying-glass:before {
+.TieLearn -magnifying-glass:before {
     content: "\f119";
 }
-.skillgro-heart-1:before {
+.TieLearn -heart-1:before {
     content: "\f11a";
 }
-.skillgro-group:before {
+.TieLearn -group:before {
     content: "\f11b";
 }
-.skillgro-review:before {
+.TieLearn -review:before {
     content: "\f11c";
 }
-.skillgro-anahata:before {
+.TieLearn -anahata:before {
     content: "\f11d";
 }
-.skillgro-search:before {
+.TieLearn -search:before {
     content: "\f11e";
 }
-.skillgro-users:before {
+.TieLearn -users:before {
     content: "\f11f";
 }
-.skillgro-gear:before {
+.TieLearn -gear:before {
     content: "\f120";
 }
-.skillgro-avatar:before {
+.TieLearn -avatar:before {
     content: "\f121";
 }
-.skillgro-sliders:before {
+.TieLearn -sliders:before {
     content: "\f122";
 }
-.skillgro-file:before {
+.TieLearn -file:before {
     content: "\f123";
 }
-.skillgro-arrow-up:before {
+.TieLearn -arrow-up:before {
     content: "\f124";
 }
-.skillgro-closed-book:before {
+.TieLearn -closed-book:before {
     content: "\f125";
 }
-.skillgro-graduation:before {
+.TieLearn -graduation:before {
     content: "\f126";
 }
-.skillgro-right-arrow:before {
+.TieLearn -right-arrow:before {
     content: "\f127";
 }
-.skillgro-heart-2:before {
+.TieLearn -heart-2:before {
     content: "\f128";
 }
-.skillgro-instructor:before {
+.TieLearn -instructor:before {
     content: "\f129";
 }
-.skillgro-arrow-up-1:before {
+.TieLearn -arrow-up-1:before {
     content: "\f12a";
 }
-.skillgro-tutorial:before {
+.TieLearn -tutorial:before {
     content: "\f12b";
 }
-.skillgro-lotus-flower:before {
+.TieLearn -lotus-flower:before {
     content: "\f12c";
 }
-.skillgro-bulb:before {
+.TieLearn -bulb:before {
     content: "\f12d";
 }
-.skillgro-presentation:before {
+.TieLearn -presentation:before {
     content: "\f12e";
 }
-.skillgro-flash:before {
+.TieLearn -flash:before {
     content: "\f12f";
 }
-.skillgro-web-programming:before {
+.TieLearn -web-programming:before {
     content: "\f130";
 }
-.skillgro-development:before {
+.TieLearn -development:before {
     content: "\f131";
 }
-.skillgro-hatha-yoga:before {
+.TieLearn -hatha-yoga:before {
     content: "\f132";
 }
-.skillgro-exchange:before {
+.TieLearn -exchange:before {
     content: "\f133";
 }
-.skillgro-customer-support:before {
+.TieLearn -customer-support:before {
     content: "\f134";
 }
-.skillgro-investment:before {
+.TieLearn -investment:before {
     content: "\f135";
 }
-.skillgro-email:before {
+.TieLearn -email:before {
     content: "\f136";
 }
-.skillgro-next:before {
+.TieLearn -next:before {
     content: "\f137";
 }
-.skillgro-fashion:before {
+.TieLearn -fashion:before {
     content: "\f138";
 }
-.skillgro-group-1:before {
+.TieLearn -group-1:before {
     content: "\f139";
 }
-.skillgro-placeholder:before {
+.TieLearn -placeholder:before {
     content: "\f13a";
 }
-.skillgro-photo-camera:before {
+.TieLearn -photo-camera:before {
     content: "\f13b";
 }
-.skillgro-diploma:before {
+.TieLearn -diploma:before {
     content: "\f13c";
 }
-.skillgro-diploma-1:before {
+.TieLearn -diploma-1:before {
     content: "\f13d";
 }
-.skillgro-cup:before {
+.TieLearn -cup:before {
     content: "\f13e";
 }
-.skillgro-happiness:before {
+.TieLearn -happiness:before {
     content: "\f13f";
 }
-.skillgro-idea:before {
+.TieLearn -idea:before {
     content: "\f140";
 }
-.skillgro-video-camera:before {
+.TieLearn -video-camera:before {
     content: "\f141";
 }
-.skillgro-database:before {
+.TieLearn -database:before {
     content: "\f142";
 }
-.skillgro-book-2:before {
+.TieLearn -book-2:before {
     content: "\f143";
 }
-.skillgro-phone-call:before {
+.TieLearn -phone-call:before {
     content: "\f144";
 }
-.skillgro-brain:before {
+.TieLearn -brain:before {
     content: "\f145";
 }
-.skillgro-finance:before {
+.TieLearn -finance:before {
     content: "\f146";
 }
-.skillgro-webinar:before {
+.TieLearn -webinar:before {
     content: "\f147";
 }
-.skillgro-atom:before {
+.TieLearn -atom:before {
     content: "\f148";
 }
-.skillgro-next-1:before {
+.TieLearn -next-1:before {
     content: "\f149";
 }
-.skillgro-money-bag:before {
+.TieLearn -money-bag:before {
     content: "\f14a";
 }
-.skillgro-calendar:before {
+.TieLearn -calendar:before {
     content: "\f14b";
 }
-.skillgro-graduating-student:before {
+.TieLearn -graduating-student:before {
     content: "\f14c";
 }
-.skillgro-tooth:before {
+.TieLearn -tooth:before {
     content: "\f14d";
 }
-.skillgro-video-tutorial:before {
+.TieLearn -video-tutorial:before {
     content: "\f14e";
 }
-.skillgro-mortarboard-1:before {
+.TieLearn -mortarboard-1:before {
     content: "\f14f";
 }
-.skillgro-idea-1:before {
+.TieLearn -idea-1:before {
     content: "\f150";
 }
-.skillgro-presentation-1:before {
+.TieLearn -presentation-1:before {
     content: "\f151";
 }
-.skillgro-three-o-clock-clock:before {
+.TieLearn -three-o-clock-clock:before {
     content: "\f152";
 }
-.skillgro-customize:before {
+.TieLearn -customize:before {
     content: "\f153";
 }
-.skillgro-certificate:before {
+.TieLearn -certificate:before {
     content: "\f154";
 }
-.skillgro-calculator:before {
+.TieLearn -calculator:before {
     content: "\f155";
 }
-.skillgro-verified:before {
+.TieLearn -verified:before {
     content: "\f156";
 }
-.skillgro-graduated:before {
+.TieLearn -graduated:before {
     content: "\f157";
 }
-.skillgro-shopping-cart:before {
+.TieLearn -shopping-cart:before {
     content: "\f158";
 }
-.skillgro-diploma-2:before {
+.TieLearn -diploma-2:before {
     content: "\f159";
 }
-.skillgro-mat:before {
+.TieLearn -mat:before {
     content: "\f15a";
 }
-.skillgro-user:before {
+.TieLearn -user:before {
     content: "\f15b";
 }
-.skillgro-demand:before {
+.TieLearn -demand:before {
     content: "\f15c";
 }
-.skillgro-dashboard:before {
+.TieLearn -dashboard:before {
     content: "\f15d";
 }
-.skillgro-bookmark-white:before {
+.TieLearn -bookmark-white:before {
     content: "\f15e";
 }
-.skillgro-question:before {
+.TieLearn -question:before {
     content: "\f15f";
 }
-.skillgro-clipboard:before {
+.TieLearn -clipboard:before {
     content: "\f160";
 }
-.skillgro-marketing:before {
+.TieLearn -marketing:before {
     content: "\f161";
 }
-.skillgro-chat:before {
+.TieLearn -chat:before {
     content: "\f162";
 }
-.skillgro-list:before {
+.TieLearn -list:before {
     content: "\f163";
 }
-.skillgro-settings:before {
+.TieLearn -settings:before {
     content: "\f164";
 }
-.skillgro-logout:before {
+.TieLearn -logout:before {
     content: "\f165";
 }
-.skillgro-dollar-currency-symbol:before {
+.TieLearn -dollar-currency-symbol:before {
     content: "\f166";
 }
-.skillgro-quality:before {
+.TieLearn -quality:before {
     content: "\f167";
 }
-.skillgro-group-2:before {
+.TieLearn -group-2:before {
     content: "\f168";
 }
-.skillgro-badge:before {
+.TieLearn -badge:before {
     content: "\f169";
 }
-.skillgro-twitter:before {
+.TieLearn -twitter:before {
     content: "\f16a";
 }
-.skillgro-maps-and-flags:before {
+.TieLearn -maps-and-flags:before {
     content: "\f16b";
 }
-.skillgro-email-1:before {
+.TieLearn -email-1:before {
     content: "\f16c";
 }
-.skillgro-next-2:before {
+.TieLearn -next-2:before {
     content: "\f16d";
 }
-.skillgro-back:before {
+.TieLearn -back:before {
     content: "\f16e";
 }
-.skillgro-edit:before {
+.TieLearn -edit:before {
     content: "\f16f";
 }
-.skillgro-bin:before {
+.TieLearn -bin:before {
     content: "\f170";
 }
 

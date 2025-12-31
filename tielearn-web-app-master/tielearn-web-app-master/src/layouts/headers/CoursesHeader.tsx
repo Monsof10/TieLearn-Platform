@@ -58,7 +58,7 @@ const CoursesHeader = () => {
           </div>
           <div style={{ display: 'flex', alignItems: 'center' }}>
             {iconEmail}
-            <a href="mailto:contact@tielearndigital.com" style={{ color: 'white', textDecoration: 'none' }}>contact@tielearndigital.com</a>
+            <a href="mailto:contact@TieLearn digital.com" style={{ color: 'white', textDecoration: 'none' }}>contact@TieLearn digital.com</a>
           </div>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
@@ -91,7 +91,7 @@ const CoursesHeader = () => {
           margin: '0 auto',
         }}>
           <div style={{ fontWeight: '900', fontSize: '1.75rem', color: '#4f46e5', letterSpacing: '0.05em' }}>
-            <Link href="/" style={{ textDecoration: 'none', color: '#4f46e5' }}>TieLearn</Link>
+            <Link href="/" style={{ textDecoration: 'none', color: '#4f46e5' }}>TieLearn </Link>
           </div>
           <ul style={{
             display: 'flex',

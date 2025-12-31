@@ -50,7 +50,7 @@ const ContactArea = () => {
                   <div className="content">
                     <h4 className="title">E-mail</h4>
                     <Link href="mailto:info@gmail.com">
-                      contact@tielearndigital.com
+                      contact@TieLearn digital.com
                     </Link>
                   </div>
                 </li>

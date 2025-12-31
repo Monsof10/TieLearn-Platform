@@ -13,11 +13,10 @@ const AboutUs = () => {
       <>
          <HeaderOne />
          <main className="main-area fix">
-            <BreadcrumbOne title="Who We Are" sub_title="About Us" />
+            <BreadcrumbOne title="Qui Nous Sommes" sub_title="À Propos" />
             <About />
             <BrandOne />
             <Feature style={true} />
-            <Newsletter />
             <Features />
             <Testimonial />
          </main>
