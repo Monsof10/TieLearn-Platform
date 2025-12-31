@@ -1,0 +1,2 @@
+- [x] Translate hardcoded English text in TieLearn -web-app-master/TieLearn -web-app-master/src/components/homes/home-two/Feature.tsx
+- [x] Translate English titles and descriptions in TieLearn -web-app-master/TieLearn -web-app-master/src/data/home-data/FeatureData.ts for home_2, home_3, home_4, home_5, home_8

@@ -1,5 +1,5 @@
 {
-  "name": "skillgro",
+  "name": "TieLearn ",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -19,6 +19,7 @@
     "framer-motion": "^11.2.10",
     "gsap": "^3.12.5",
     "next": "14.2.3",
+    "openai": "5.11.0",
     "plyr": "^3.7.8",
     "react": "^18",
     "react-animated-cursor": "^2.11.2",

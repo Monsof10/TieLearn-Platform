@@ -1,7 +1,7 @@
 import BrandOne from '@/components/common/brands/BrandOne';
 import Banner from './Banner';
 import About from './About';
-import CourseArea from './CourseArea';
+/* import CourseArea from './CourseArea'; */
 import Newsletter from './Newsletter';
 import Instructor from './Instructor';
 import Counter from './Counter';
@@ -22,8 +22,7 @@ const HomeOne = () => {
         <Categories />
         <BrandOne />
         <About />
-        <CourseArea />
-        <Newsletter />
+        {/* <CourseArea /> */}
         {/* <Instructor /> */}
         {/* <Counter /> */}
         <FaqArea />

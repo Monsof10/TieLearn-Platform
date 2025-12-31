@@ -54,37 +54,7 @@ const Signup = () => {
         }}>
           GET STARTED
         </div>
-        <button style={{
-          backgroundColor: '#2563eb',
-          border: 'none',
-          borderRadius: '6px',
-          padding: '0.75rem 1.5rem',
-          color: 'white',
-          fontSize: '1rem',
-          marginBottom: '1rem',
-          cursor: 'pointer',
-          width: '100%',
-          maxWidth: 250,
-          zIndex: 1,
-          position: 'relative',
-        }}>
-          Sign in with Google+
-        </button>
-        <button style={{
-          backgroundColor: '#2563eb',
-          border: 'none',
-          borderRadius: '6px',
-          padding: '0.75rem 1.5rem',
-          color: 'white',
-          fontSize: '1rem',
-          cursor: 'pointer',
-          width: '100%',
-          maxWidth: 250,
-          zIndex: 1,
-          position: 'relative',
-        }}>
-          Sign in with Facebook
-        </button>
+        {/* Social sign-in buttons removed */}
       </div>
 
       {/* Right Panel */}
@@ -102,7 +72,7 @@ const Signup = () => {
         position: 'relative',
         zIndex: 2,
       }}>
-        <h1 style={{ fontWeight: 'bold', fontSize: '2rem', marginBottom: '2rem', color: '#1e293b' }}>signup</h1>
+        <h1 style={{ fontWeight: 'bold', fontSize: '2rem', marginBottom: '2rem', color: '#1e293b' }}>Sign up</h1>
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
           <label htmlFor="email" style={{ color: '#6b7280', fontSize: '0.9rem' }}>Email</label>
           <input

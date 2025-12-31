@@ -2,7 +2,7 @@ import InstructorHistory from "@/dashboard/instructor-dashboard/instructor-histo
 import Wrapper from "@/layouts/Wrapper";
 
 export const metadata = {
-   title: "Instructor History SkillGro - Online Courses & Education React Next js Template",
+   title: "Instructor History TieLearn  ",
 };
 const index = () => {
    return (

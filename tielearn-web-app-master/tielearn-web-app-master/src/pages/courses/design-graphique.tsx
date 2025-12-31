@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import FloatingBubbles from '../../components/FloatingBubbles';
-import CoursesHeader from '../../layouts/headers/CoursesHeader';
+import HeaderOne from '../../layouts/headers/HeaderOne';
+import CourseAIAssistant from '../../components/Ai/CourseAIAssistant';
 
 const CheckIcon = () => (
   <svg width="20" height="20" fill="#4f46e5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style={{ marginRight: '0.5rem' }}>
@@ -189,6 +190,7 @@ const programmes = {
 
 const DesignGraphique = () => {
   const [selectedProgram, setSelectedProgram] = useState("Design Graphique – Initiation et Pratique Professionnelle");
+  const [isAssistantOpen, setIsAssistantOpen] = useState(false);
 
   const boldKeywords = [
     "Module",
@@ -219,7 +221,7 @@ const DesignGraphique = () => {
 
   return (
     <div style={{ fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif", color: '#1e293b' }}>
-      <CoursesHeader />
+      <HeaderOne />
       {/* Hero Section */}
       <section style={{
         background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
@@ -249,6 +251,7 @@ const DesignGraphique = () => {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          onClick={() => setIsAssistantOpen(true)}
           style={{
             marginTop: '2.5rem',
             backgroundColor: '#facc15',
@@ -264,17 +267,18 @@ const DesignGraphique = () => {
             zIndex: 1
           }}
         >
-          Contactez-Nous
+          Demandez à votre assistant IA
         </motion.button>
       </section>
 
       {/* Quick Overview Section */}
       <section style={{ padding: '4rem 2rem', maxWidth: 1000, margin: '0 auto', display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', gap: '2rem', backgroundColor: 'white', borderRadius: '12px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}>
-        {[
-          { icon: '🎓', title: 'Cours de haute qualité', desc: 'Nous offrons des cours de qualité supérieure pour vous aider à exceller.' },
-          { icon: '👨‍🏫', title: 'Mentor personnel', desc: 'Un mentor dédié pour vous guider tout au long de votre apprentissage.' },
-          { icon: '💎', title: 'Support premium', desc: 'Assistance prioritaire pour toutes vos questions et besoins.' },
-          { icon: '⏰', title: 'Remboursement 24h', desc: 'Satisfait ou remboursé sous 24 heures.' },
+        
+          {[
+            { icon: '🎓', title: 'Cours de haute qualité', desc: 'Nous offrons des cours de qualité supérieure pour vous aider à exceller.' },
+            { icon: '👨‍🏫', title: 'Mentor personnel', desc: 'Un mentor dédié pour vous guider tout au long de votre apprentissage.' },
+            { icon: '💎', title: 'Support premium', desc: 'Assistance prioritaire pour toutes vos questions et besoins.' },
+            { icon: '⏰', title: 'Remboursement 24h', desc: 'Satisfait ou remboursé sous 24 heures.' },
         ].map(({ icon, title, desc }, idx) => (
           <motion.div
             key={idx}
@@ -404,9 +408,10 @@ const DesignGraphique = () => {
           transition={{ duration: 0.8 }}
           style={{ margin: 0, fontSize: '1rem', position: 'relative', zIndex: 1 }}
         >
-          &copy; {new Date().getFullYear()} TieLearn. Tous droits réservés.
+          &copy; {new Date().getFullYear()} TieLearn . Tous droits réservés.
         </motion.p>
       </footer>
+      <CourseAIAssistant isOpen={isAssistantOpen} onClose={() => setIsAssistantOpen(false)} pageType="Design Graphique" />
     </div>
   );
 };

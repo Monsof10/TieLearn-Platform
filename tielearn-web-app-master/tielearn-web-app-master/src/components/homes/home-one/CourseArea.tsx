@@ -49,7 +49,6 @@ const setting = {
     },
   },
 };
-
 const CourseArea = ({ style }: any) => {
   const [activeTab, setActiveTab] = useState(0);
 
@@ -145,7 +144,7 @@ const CourseArea = ({ style }: any) => {
                           </p> */}
                           <div className="courses__item-bottom">
                             <div className="button">
-                              <Link href="/contact">
+                              <Link href="/signup">
                                 <span className="text">S’inscrire</span>
                                 <i className="flaticon-arrow-right"></i>
                               </Link>

@@ -2,7 +2,7 @@ import InstructorAssignment from "@/dashboard/instructor-dashboard/instructor-as
 import Wrapper from "@/layouts/Wrapper";
 
 export const metadata = {
-   title: "Instructor Assignment SkillGro - Online Courses & Education React Next js Template",
+   title: "Instructor Assignment TieLearn  ",
 };
 const index = () => {
    return (

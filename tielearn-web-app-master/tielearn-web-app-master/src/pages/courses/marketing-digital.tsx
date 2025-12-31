@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import FloatingBubbles from '../../components/FloatingBubbles';
-import CoursesHeader from '../../layouts/headers/CoursesHeader';
+import HeaderOne from '../../layouts/headers/HeaderOne';
+import CourseAIAssistant from '../../components/Ai/CourseAIAssistant';
 
 const CheckIcon = () => (
   <svg width="20" height="20" fill="#4f46e5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style={{ marginRight: '0.5rem' }}>
@@ -10,13 +11,86 @@ const CheckIcon = () => (
 );
 
 const programmes = {
-  "Marketing Digital – Initiation et Pratique Professionnelle": [
-    "Programme content will be provided."
+  "Marketing Digital : Fondamentaux et Pratique Professionnelle": [
+    "📚 Intitulé de la formation :",
+    "Marketing Digital : Fondamentaux et Pratique Professionnelle",
+    "⏱ Durée :",
+    "3 mois – 50 heures",
+    "→ 1 à 2 séances par semaine",
+    "🎯 Objectifs généraux :",
+    "Comprendre les fondamentaux du marketing digital",
+    "Maîtriser les principaux canaux et outils digitaux",
+    "Élaborer une stratégie de marketing digital adaptée à un projet",
+    "Savoir créer, gérer et analyser des campagnes digitales",
+    "📅 Contenu de la formation",
+    "🔹 Module 1 : Introduction au Marketing Digital",
+    "Durée : 4 heures",
+    "Définition et évolution du marketing digital",
+    "Comportement du consommateur en ligne",
+    "Inbound vs Outbound marketing",
+    "Présentation de l’écosystème digital en Tunisie et dans le monde",
+    "🔹 Module 2 : Création de contenu et Branding digital",
+    "Durée : 8 heures",
+    "Stratégie de contenu (Content marketing)",
+    "Copywriting et storytelling",
+    "Création de visuels avec Canva",
+    "Introduction à la vidéo courte (Reels, TikTok, YouTube Shorts)",
+    "Outils d’édition gratuits et IA pour contenu",
+    "🔹 Module 3 : Réseaux Sociaux et Community Management",
+    "Durée : 10 heures",
+    "Rôle du Community Manager",
+    "Stratégie éditoriale pour réseaux sociaux (Facebook, Instagram, LinkedIn, TikTok)",
+    "Création d’un calendrier de publication",
+    "Animation et modération de communautés",
+    "Publicité sur les réseaux sociaux (Facebook Ads – Initiation)",
+    "Analyse des statistiques (Meta Business Suite)",
+    "🔹 Module 4 : Référencement et Visibilité Web",
+    "Durée : 6 heures",
+    "SEO : Référencement naturel (bases)",
+    "Google My Business (création et optimisation)",
+    "Présentation des outils SEO (Ubersuggest, Google Trends, etc.)",
+    "Notions de SEM (référencement payant)",
+    "🔹 Module 5 : Email Marketing et Outils CRM",
+    "Durée : 4 heures",
+    "Création de campagnes email (Mailchimp, Brevo)",
+    "Bases de la segmentation d’audience",
+    "Suivi des performances (taux d’ouverture, clics, rebonds)",
+    "Introduction aux outils de CRM simples",
+    "🔹 Module 6 : Publicité en ligne (SEA)",
+    "Durée : 6 heures",
+    "Introduction à Google Ads",
+    "Types de campagnes : Réseau de recherche, display, vidéo",
+    "Ciblage et mots-clés",
+    "Création d’une campagne test",
+    "Suivi et analyse des résultats",
+    "🔹 Module 7 : Analyse de performance et Reporting",
+    "Durée : 4 heures",
+    "Google Analytics (niveau débutant)",
+    "Indicateurs clés (KPI) à suivre",
+    "Interprétation des données",
+    "Création de rapports simples",
+    "🔹 Module 8 : Atelier final - Élaboration d’une stratégie digitale complète",
+    "Durée : 8 heures",
+    "Étude de cas (choix d’un projet réel ou fictif)",
+    "Définition des objectifs marketing",
+    "Choix des canaux et élaboration du plan de contenu",
+    "Budget prévisionnel et campagne publicitaire simulée",
+    "Présentation du projet (pitch)",
+    "📝 Méthodologie pédagogique :",
+    "Apports théoriques illustrés d'exemples concrets",
+    "Travaux pratiques individuels et en groupe",
+    "Études de cas locaux (pages tunisiennes, entreprises, etc.)",
+    "Accès à des outils numériques (Canva, Meta Ads, Mailchimp, etc.)",
+    "Suivi individualisé et accompagnement",
+    "🎓 Évaluation et attestation :",
+    "Évaluation finale (projet personnel ou en binôme)",
+    "Attestation de formation délivrée à la fin de la formation"
   ]
 };
 
 const MarketingDigital = () => {
-  const [selectedProgram, setSelectedProgram] = useState("Marketing Digital – Initiation et Pratique Professionnelle");
+  const [selectedProgram, setSelectedProgram] = useState("Marketing Digital : Fondamentaux et Pratique Professionnelle");
+  const [isAssistantOpen, setIsAssistantOpen] = useState(false);
 
   const boldKeywords = [
     "Module",
@@ -28,26 +102,25 @@ const MarketingDigital = () => {
     "Durée totale",
     "Rythme suggéré",
     "MODULE",
-    "🎯 Objectif général :",
-    "⏳ Durée totale",
-    "Période :",
-    "Rythme :",
-    "Nombre de modules :",
-    "Niveau requis :",
-    "📚 Programme par modules :",
-    "🔹 Module 1 :",
-    "🔹 Module 2 :",
-    "🔹 Module 3 :",
-    "🔹 Module 4 :",
-    "🔹 Module 5 :",
-    "🧑‍🏫 Méthodologie :",
-    "✅ Compétences visées :",
-    "📄 Livrables à fournir :"
+    "🎯 Objectifs généraux :",
+    "⏱ Durée :",
+    "📅 Contenu de la formation",
+    "📝 Méthodologie pédagogique :",
+    "🎓 Évaluation et attestation :",
+    "📚 Intitulé de la formation :",
+    "🔹 Module 1 : Introduction au Marketing Digital",
+    "🔹 Module 2 : Création de contenu et Branding digital",
+    "🔹 Module 3 : Réseaux Sociaux et Community Management",
+    "🔹 Module 4 : Référencement et Visibilité Web",
+    "🔹 Module 5 : Email Marketing et Outils CRM",
+    "🔹 Module 6 : Publicité en ligne (SEA)",
+    "🔹 Module 7 : Analyse de performance et Reporting",
+    "🔹 Module 8 : Atelier final - Élaboration d’une stratégie digitale complète",
   ];
 
   return (
     <div style={{ fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif", color: '#1e293b' }}>
-      <CoursesHeader />
+      <HeaderOne />
       {/* Hero Section */}
       <section style={{
         background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
@@ -77,6 +150,7 @@ const MarketingDigital = () => {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          onClick={() => setIsAssistantOpen(true)}
           style={{
             marginTop: '2.5rem',
             backgroundColor: '#facc15',
@@ -92,13 +166,13 @@ const MarketingDigital = () => {
             zIndex: 1
           }}
         >
-          Contactez-Nous
+          Demandez à votre assistant IA
         </motion.button>
       </section>
 
       {/* Quick Overview Section */}
       <section style={{ padding: '4rem 2rem', maxWidth: 1000, margin: '0 auto', display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', gap: '2rem', backgroundColor: 'white', borderRadius: '12px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}>
-        {[ 
+        {[
           { icon: '🎓', title: 'Cours de haute qualité', desc: 'Nous offrons des cours de qualité supérieure pour vous aider à exceller.' },
           { icon: '👨‍🏫', title: 'Mentor personnel', desc: 'Un mentor dédié pour vous guider tout au long de votre apprentissage.' },
           { icon: '💎', title: 'Support premium', desc: 'Assistance prioritaire pour toutes vos questions et besoins.' },
@@ -203,7 +277,15 @@ const MarketingDigital = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           style={{ fontSize: '1.1rem', lineHeight: '1.6', position: 'relative', zIndex: 1 }}
         >
-          Programme content will be provided.
+          Aucune expérience préalable en marketing n'est requise. Ce cours est idéal pour les débutants, les étudiants, les professionnels en reconversion ou les entrepreneurs souhaitant maîtriser le marketing digital.
+        </motion.p>
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          style={{ fontSize: '1.1rem', lineHeight: '1.6', position: 'relative', zIndex: 1 }}
+        >
+          Une connaissance de base de l'utilisation d'un ordinateur et d'internet est recommandée.
         </motion.p>
       </section>
 
@@ -216,9 +298,10 @@ const MarketingDigital = () => {
           transition={{ duration: 0.8 }}
           style={{ margin: 0, fontSize: '1rem', position: 'relative', zIndex: 1 }}
         >
-          &copy; {new Date().getFullYear()} TieLearn. Tous droits réservés.
+          &copy; {new Date().getFullYear()} TieLearn . Tous droits réservés.
         </motion.p>
       </footer>
+      <CourseAIAssistant pageType="marketing-digital" isOpen={isAssistantOpen} onClose={() => setIsAssistantOpen(false)} />
     </div>
   );
 };

@@ -8,25 +8,25 @@ interface DataType {
 const feature_data: DataType[] = [
    {
       id: 1,
-      icon: "skillgro-profit",
+      icon: "TieLearn -profit",
       title: "Learn skills with 120k+",
       tag: "video courses.",
    },
    {
       id: 2,
-      icon: "skillgro-instructor",
+      icon: "TieLearn -instructor",
       title: "Choose courses",
       tag: "real-world experts.",
    },
    {
       id: 3,
-      icon: "skillgro-tutorial",
+      icon: "TieLearn -tutorial",
       title: "processional Tutors",
       tag: "video courses.",
    },
    {
       id: 4,
-      icon: "skillgro-graduated",
+      icon: "TieLearn -graduated",
       title: "Online Degrees",
       tag: "Study flexibly online",
    },

@@ -93,7 +93,7 @@ const Courses = () => {
                       <ul className="list-wrap">
                         <li>
                           <div className="icon">
-                            <i className="skillgro-happiness"></i>
+                            <i className="TieLearn -happiness"></i>
                           </div>
                           <p>
                             <span>Age:</span>
@@ -102,7 +102,7 @@ const Courses = () => {
                         </li>
                         <li>
                           <div className="icon">
-                            <i className="skillgro-time"></i>
+                            <i className="TieLearn -time"></i>
                           </div>
                           <p>
                             <span>Time: </span>

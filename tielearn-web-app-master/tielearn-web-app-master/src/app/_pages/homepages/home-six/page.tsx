@@ -2,7 +2,7 @@ import HomeSix from "@/components/homes/home-six";
 import Wrapper from "@/layouts/Wrapper";
 
 export const metadata = {
-   title: "Home Six SkillGro - Online Courses & Education React Next js Template",
+   title: "Home Six TieLearn  ",
 };
 const page = () => {
    return (

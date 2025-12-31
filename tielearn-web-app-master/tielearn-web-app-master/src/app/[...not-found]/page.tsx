@@ -2,7 +2,7 @@ import NotFound from "@/components/inner-pages/error";
 import Wrapper from "@/layouts/Wrapper";
 
 export const metadata = {
-   title: "Contact SkillGro - Online Courses & Education React Next js Template",
+   title: "Contact TieLearn  ",
 };
 const page = () => {
    return (

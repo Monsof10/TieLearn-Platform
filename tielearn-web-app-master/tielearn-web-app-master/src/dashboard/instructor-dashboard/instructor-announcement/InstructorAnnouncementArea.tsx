@@ -77,8 +77,8 @@ const InstructorAnnouncementArea = () => {
                                           </td>
                                           <td>
                                              <div className="dashboard__review-action">
-                                                <Link href="#" title="Edit"><i className="skillgro-edit"></i></Link>
-                                                <Link href="#" title="Delete"><i className="skillgro-bin"></i></Link>
+                                                <Link href="#" title="Edit"><i className="TieLearn -edit"></i></Link>
+                                                <Link href="#" title="Delete"><i className="TieLearn -bin"></i></Link>
                                              </div>
                                           </td>
                                        </tr>

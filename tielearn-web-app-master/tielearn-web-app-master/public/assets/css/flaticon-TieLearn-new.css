@@ -1,0 +1,482 @@
+/*!
+*    ______ _       _   _
+*    |  ____| |     | | (_)
+*    | |__  | | __ _| |_ _  ___ ___  _ __
+*    |  __| | |/ _` | __| |/ __/ _ \| '_ \
+*    | |    | | (_| | |_| | (_| (_) | | | |
+*    |_|    |_|\__,_|\__|_|\___\___/|_| |_|
+*
+*         https://www.TieLearn .com
+*/
+
+@font-face {
+    font-family: "flaticon-TieLearn -new";
+    src: url("../fonts/skillgro-icon/flaticon_skillgro.woff2") format("woff2"),
+         url("../fonts/skillgro-icon/flaticon_skillgro.woff") format("woff"),
+         url("../fonts/skillgro-icon/flaticon_skillgro.ttf") format("truetype");
+}
+
+i[class^="TieLearn -"]:before,
+i[class*=" TieLearn -"]:before {
+    font-family: flaticon-TieLearn -new !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+[class*="TieLearn -"] {
+    display: block;
+    line-height: 0;
+}
+
+.TieLearn -book:before {
+    content: "\f101";
+}
+
+.TieLearn -lotus:before {
+    content: "\f102";
+}
+
+.TieLearn -text-file:before {
+    content: "\f103";
+}
+
+.TieLearn -happy-face:before {
+    content: "\f104";
+}
+
+.TieLearn -taxes:before {
+    content: "\f105";
+}
+
+.TieLearn -vector:before {
+    content: "\f106";
+}
+
+.TieLearn -notepad:before {
+    content: "\f107";
+}
+
+.TieLearn -writing:before {
+    content: "\f108";
+}
+
+.TieLearn -audio-book:before {
+    content: "\f109";
+}
+
+.TieLearn -financial-profit:before {
+    content: "\f10a";
+}
+
+.TieLearn -development-plan:before {
+    content: "\f10b";
+}
+
+.TieLearn -smart-watch:before {
+    content: "\f10c";
+}
+
+.TieLearn -browser:before {
+    content: "\f10d";
+}
+
+.TieLearn -heart:before {
+    content: "\f10e";
+}
+
+.TieLearn -mortarboard:before {
+    content: "\f10f";
+}
+
+.TieLearn -stone:before {
+    content: "\f110";
+}
+
+.TieLearn -label:before {
+    content: "\f111";
+}
+
+.TieLearn -menu:before {
+    content: "\f112";
+}
+
+.TieLearn -satchel:before {
+    content: "\f113";
+}
+
+.TieLearn -law:before {
+    content: "\f114";
+}
+
+.TieLearn -profit:before {
+    content: "\f115";
+}
+
+.TieLearn -ribbon:before {
+    content: "\f116";
+}
+
+.TieLearn -time:before {
+    content: "\f117";
+}
+
+.TieLearn -book-1:before {
+    content: "\f118";
+}
+
+.TieLearn -magnifying-glass:before {
+    content: "\f119";
+}
+
+.TieLearn -heart-1:before {
+    content: "\f11a";
+}
+
+.TieLearn -group:before {
+    content: "\f11b";
+}
+
+.TieLearn -review:before {
+    content: "\f11c";
+}
+
+.TieLearn -anahata:before {
+    content: "\f11d";
+}
+
+.TieLearn -search:before {
+    content: "\f11e";
+}
+
+.TieLearn -users:before {
+    content: "\f11f";
+}
+
+.TieLearn -gear:before {
+    content: "\f120";
+}
+
+.TieLearn -avatar:before {
+    content: "\f121";
+}
+
+.TieLearn -sliders:before {
+    content: "\f122";
+}
+
+.TieLearn -file:before {
+    content: "\f123";
+}
+
+.TieLearn -arrow-up:before {
+    content: "\f124";
+}
+
+.TieLearn -closed-book:before {
+    content: "\f125";
+}
+
+.TieLearn -graduation:before {
+    content: "\f126";
+}
+
+.TieLearn -right-arrow:before {
+    content: "\f127";
+}
+
+.TieLearn -heart-2:before {
+    content: "\f128";
+}
+
+.TieLearn -instructor:before {
+    content: "\f129";
+}
+
+.TieLearn -arrow-up-1:before {
+    content: "\f12a";
+}
+
+.TieLearn -tutorial:before {
+    content: "\f12b";
+}
+
+.TieLearn -lotus-flower:before {
+    content: "\f12c";
+}
+
+.TieLearn -bulb:before {
+    content: "\f12d";
+}
+
+.TieLearn -presentation:before {
+    content: "\f12e";
+}
+
+.TieLearn -flash:before {
+    content: "\f12f";
+}
+
+.TieLearn -web-programming:before {
+    content: "\f130";
+}
+
+.TieLearn -development:before {
+    content: "\f131";
+}
+
+.TieLearn -hatha-yoga:before {
+    content: "\f132";
+}
+
+.TieLearn -exchange:before {
+    content: "\f133";
+}
+
+.TieLearn -customer-support:before {
+    content: "\f134";
+}
+
+.TieLearn -investment:before {
+    content: "\f135";
+}
+
+.TieLearn -email:before {
+    content: "\f136";
+}
+
+.TieLearn -next:before {
+    content: "\f137";
+}
+
+.TieLearn -fashion:before {
+    content: "\f138";
+}
+
+.TieLearn -group-1:before {
+    content: "\f139";
+}
+
+.TieLearn -placeholder:before {
+    content: "\f13a";
+}
+
+.TieLearn -photo-camera:before {
+    content: "\f13b";
+}
+
+.TieLearn -diploma:before {
+    content: "\f13c";
+}
+
+.TieLearn -diploma-1:before {
+    content: "\f13d";
+}
+
+.TieLearn -cup:before {
+    content: "\f13e";
+}
+
+.TieLearn -happiness:before {
+    content: "\f13f";
+}
+
+.TieLearn -idea:before {
+    content: "\f140";
+}
+
+.TieLearn -video-camera:before {
+    content: "\f141";
+}
+
+.TieLearn -database:before {
+    content: "\f142";
+}
+
+.TieLearn -book-2:before {
+    content: "\f143";
+}
+
+.TieLearn -phone-call:before {
+    content: "\f144";
+}
+
+.TieLearn -brain:before {
+    content: "\f145";
+}
+
+.TieLearn -finance:before {
+    content: "\f146";
+}
+
+.TieLearn -webinar:before {
+    content: "\f147";
+}
+
+.TieLearn -atom:before {
+    content: "\f148";
+}
+
+.TieLearn -next-1:before {
+    content: "\f149";
+}
+
+.TieLearn -money-bag:before {
+    content: "\f14a";
+}
+
+.TieLearn -calendar:before {
+    content: "\f14b";
+}
+
+.TieLearn -graduating-student:before {
+    content: "\f14c";
+}
+
+.TieLearn -tooth:before {
+    content: "\f14d";
+}
+
+.TieLearn -video-tutorial:before {
+    content: "\f14e";
+}
+
+.TieLearn -mortarboard-1:before {
+    content: "\f14f";
+}
+
+.TieLearn -idea-1:before {
+    content: "\f150";
+}
+
+.TieLearn -presentation-1:before {
+    content: "\f151";
+}
+
+.TieLearn -three-o-clock-clock:before {
+    content: "\f152";
+}
+
+.TieLearn -customize:before {
+    content: "\f153";
+}
+
+.TieLearn -certificate:before {
+    content: "\f154";
+}
+
+.TieLearn -calculator:before {
+    content: "\f155";
+}
+
+.TieLearn -verified:before {
+    content: "\f156";
+}
+
+.TieLearn -graduated:before {
+    content: "\f157";
+}
+
+.TieLearn -shopping-cart:before {
+    content: "\f158";
+}
+
+.TieLearn -diploma-2:before {
+    content: "\f159";
+}
+
+.TieLearn -mat:before {
+    content: "\f15a";
+}
+
+.TieLearn -user:before {
+    content: "\f15b";
+}
+
+.TieLearn -demand:before {
+    content: "\f15c";
+}
+
+.TieLearn -dashboard:before {
+    content: "\f15d";
+}
+
+.TieLearn -bookmark-white:before {
+    content: "\f15e";
+}
+
+.TieLearn -question:before {
+    content: "\f15f";
+}
+
+.TieLearn -clipboard:before {
+    content: "\f160";
+}
+
+.TieLearn -marketing:before {
+    content: "\f161";
+}
+
+.TieLearn -chat:before {
+    content: "\f162";
+}
+
+.TieLearn -list:before {
+    content: "\f163";
+}
+
+.TieLearn -settings:before {
+    content: "\f164";
+}
+
+.TieLearn -logout:before {
+    content: "\f165";
+}
+
+.TieLearn -dollar-currency-symbol:before {
+    content: "\f166";
+}
+
+.TieLearn -quality:before {
+    content: "\f167";
+}
+
+.TieLearn -group-2:before {
+    content: "\f168";
+}
+
+.TieLearn -badge:before {
+    content: "\f169";
+}
+
+.TieLearn -twitter:before {
+    content: "\f16a";
+}
+
+.TieLearn -maps-and-flags:before {
+    content: "\f16b";
+}
+
+.TieLearn -email-1:before {
+    content: "\f16c";
+}
+
+.TieLearn -next-2:before {
+    content: "\f16d";
+}
+
+.TieLearn -back:before {
+    content: "\f16e";
+}
+
+.TieLearn -edit:before {
+    content: "\f16f";
+}
+
+.TieLearn -bin:before {
+    content: "\f170";
+}

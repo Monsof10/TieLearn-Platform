@@ -40,7 +40,7 @@ const HeaderSeven = () => {
                                        <div className="tgmenu__categories select-grp-two d-none d-md-block">
                                           <div className="dropdown">
                                              <button className="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i className="skillgro-list"></i>
+                                                <i className="TieLearn -list"></i>
                                                 Categories
                                              </button>
                                              <ul className="dropdown-menu">

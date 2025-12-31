@@ -2,7 +2,7 @@ import HomeThree from "@/components/homes/home-three";
 import Wrapper from "@/layouts/Wrapper";
 
 export const metadata = {
-   title: "Home Three SkillGro - Online Courses & Education React Next js Template",
+   title: "Home Three TieLearn  ",
 };
 const index = () => {
    return (

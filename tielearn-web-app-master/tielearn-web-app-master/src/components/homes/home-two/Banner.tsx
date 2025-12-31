@@ -31,7 +31,7 @@ const Banner = () => {
                               </svg>
                               What You
                            </span> <br />
-                           Make of it. Make it Yours at SkillGro.
+                           Make of it. Make it Yours at TieLearn .
                         </h3>
                         <div className="banner__btn-two" data-aos="fade-right" data-aos-delay="600">
                            <Link href="/contact" className="btn arrow-btn">Start Free Trial <BtnArrow /></Link>

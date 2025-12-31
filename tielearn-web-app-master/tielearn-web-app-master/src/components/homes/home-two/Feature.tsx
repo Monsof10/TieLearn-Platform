@@ -8,9 +8,9 @@ const Feature = ({ style }: any) => {
             <div className="row justify-content-center">
                <div className="col-xl-6 col-lg-8">
                   <div className="section__title text-center mb-40">
-                     <span className="sub-title">Our Top Features</span>
-                     <h2 className="title">Achieve Your Goal With SkillGrow</h2>
-                     <p>when an unknown printer took a galley of type and scrambled make <br /> specimen book has survived not only five centuries</p>
+                     <span className="sub-title">Nos Meilleures Fonctionnalités</span>
+                     <h2 className="title">Atteignez Votre Objectif Avec TieLearn w</h2>
+                     <p>quand un imprimeur inconnu prit une galère de type et la brouilla pour faire <br /> un livre spécimen qui a survécu non seulement cinq siècles</p>
                   </div>
                </div>
             </div>

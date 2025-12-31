@@ -5,34 +5,67 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import BtnArrow from "@/svg/BtnArrow"
 import Link from "next/link"
+import { useDispatch } from 'react-redux';
+import { loginStart, loginSuccess, loginFailure } from '@/redux/features/authSlice';
+import { useRouter } from 'next/navigation';
 
 interface FormData {
-   email: string;
+   username: string;
    password: string;
 }
 
 const LoginForm = () => {
+   const dispatch = useDispatch();
+   const router = useRouter();
 
    const schema = yup
       .object({
-         email: yup.string().required().email().label("Email"),
+         username: yup.string().required().label("Username"),
          password: yup.string().required().label("Password"),
       })
       .required();
 
-   const { register, handleSubmit, reset, formState: { errors }, } = useForm<FormData>({ resolver: yupResolver(schema), });
-   const onSubmit = () => {
-      const notify = () => toast('Login successfully', { position: 'top-center' });
-      notify();
-      reset();
+   const { register, handleSubmit, reset, formState: { errors, isSubmitting }, } = useForm<FormData>({ resolver: yupResolver(schema), });
+
+   const onSubmit = async (data: FormData) => {
+      dispatch(loginStart());
+      try {
+         const response = await fetch('http://localhost:5000/api/auth/login', {
+            method: 'POST',
+            headers: {
+               'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+         });
+
+         const result = await response.json();
+
+         if (response.ok) {
+            dispatch(loginSuccess({ token: result.token, user: result.user }));
+            toast.success('Login successful!', { position: 'top-center' });
+            reset();
+            // Redirect based on role
+            if (result.user.role === 'admin') {
+               router.push('/admin');
+            } else {
+               router.push('/dashboard');
+            }
+         } else {
+            dispatch(loginFailure(result.message || 'Login failed'));
+            toast.error(result.message || 'Login failed', { position: 'top-center' });
+         }
+      } catch (error) {
+         dispatch(loginFailure('Network error'));
+         toast.error('Network error', { position: 'top-center' });
+      }
    };
 
    return (
       <form onSubmit={handleSubmit(onSubmit)} className="account__form">
          <div className="form-grp">
-            <label htmlFor="email">Email</label>
-            <input id="email" {...register("email")} type="text" placeholder="email" />
-            <p className="form_error">{errors.email?.message}</p>
+            <label htmlFor="username">Username</label>
+            <input id="username" {...register("username")} type="text" placeholder="username" />
+            <p className="form_error">{errors.username?.message}</p>
          </div>
          <div className="form-grp">
             <label htmlFor="password">Password</label>
@@ -48,7 +81,9 @@ const LoginForm = () => {
                <Link href="/registration">Forgot Password?</Link>
             </div>
          </div>
-         <button type="submit" className="btn btn-two arrow-btn">Sign In<BtnArrow /></button>
+         <button type="submit" className="btn btn-two arrow-btn" disabled={isSubmitting}>
+            {isSubmitting ? 'Signing In...' : 'Sign In'}<BtnArrow />
+         </button>
       </form>
    )
 }

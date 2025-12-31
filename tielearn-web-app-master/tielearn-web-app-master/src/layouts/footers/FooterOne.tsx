@@ -62,7 +62,7 @@ const FooterOne = ({ style, style_2 }: any) => {
             <div className="col-md-5">
               <div className="footer__bottom-menu">
                 <ul className="list-wrap">
-                  © 2024 tielearndigital. Tous droits réservés.
+                  © 2024 TieLearn. Tous droits réservés.
                 </ul>
               </div>
             </div>

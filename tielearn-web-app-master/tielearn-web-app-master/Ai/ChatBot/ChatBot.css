@@ -1,11 +1,19 @@
 .chatbot-container {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  left: 0;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
   z-index: 1000;
 }
 
 .chatbot-button {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -24,8 +32,9 @@
 
 .chatbot-window {
   position: absolute;
-  bottom: 70px;
-  right: 0;
+  left: 70px;
+  top: 50%;
+  transform: translateY(-50%);
   width: 350px;
   height: 500px;
   background-color: white;

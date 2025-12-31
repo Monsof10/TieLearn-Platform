@@ -1,8 +1,8 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import FloatingBubbles from '../../components/FloatingBubbles';
-import CoursesHeader from '../../layouts/headers/CoursesHeader';
+import HeaderOne from '../../layouts/headers/HeaderOne';
+import CourseAIAssistant from '../../components/Ai/CourseAIAssistant';
 
 const CheckIcon = () => (
   <svg width="20" height="20" fill="#4f46e5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style={{ marginRight: '0.5rem' }}>
@@ -10,14 +10,292 @@ const CheckIcon = () => (
   </svg>
 );
 
+const gameDevProgram = {
+  beforeTable: [
+    "🎮 Programme de Formation : Développement des Jeux Vidéo",
+    "Durée : 3 mois",
+    "Volume horaire total : 50 heures",
+    "Public cible : Jeunes passionnés de technologie, étudiants en informatique ou autodidactes souhaitant s’initier au développement de jeux",
+    "Prérequis : Connaissances de base en informatique (utilisation PC) et logique de programmation",
+    "✅ Objectifs Généraux :",
+    "Comprendre les bases du développement de jeux vidéo 2D et 3D",
+    "Maîtriser un moteur de jeu (Unity ou Godot)",
+    "Concevoir un jeu simple de A à Z (idée, gameplay, graphisme, code)",
+    "Être capable de publier un jeu jouable sur PC ou mobile",
+    "🧱 Structure de la formation (modulaire)",
+  ],
+  tableData: [
+    {
+      module: 'M1',
+      title: 'Introduction au développement de jeux vidéo',
+      duration: '4 h',
+      objectives: 'Comprendre l’univers du jeu vidéo, les genres, les métiers',
+    },
+    {
+      module: 'M2',
+      title: 'Algorithmique et logique de programmation',
+      duration: '6 h',
+      objectives: 'Réviser les bases de la logique de programmation orientée jeu',
+    },
+    {
+      module: 'M3',
+      title: 'Découverte du moteur Unity ou Godot',
+      duration: '8 h',
+      objectives: 'Prendre en main l’environnement de développement et l’interface',
+    },
+    {
+      module: 'M4',
+      title: 'Création de scènes et gameplay 2D',
+      duration: '10 h',
+      objectives: 'Manipuler les objets, sprites, animations, collisions',
+    },
+    {
+      module: 'M5',
+      title: 'Scripting et logique de jeu (C# ou GDScript)',
+      duration: '10 h',
+      objectives: 'Implémenter les mécaniques de jeu, contrôles, UI',
+    },
+    {
+      module: 'M6',
+      title: 'Introduction au développement 3D',
+      duration: '4 h',
+      objectives: 'Bases de la 3D, importation d’objets, caméras et lumières',
+    },
+    {
+      module: 'M7',
+      title: 'Son, musique et effets visuels',
+      duration: '3 h',
+      objectives: 'Intégrer sons, effets et atmosphères immersives',
+    },
+    {
+      module: 'M8',
+      title: 'Optimisation et exportation du jeu',
+      duration: '3 h',
+      objectives: 'Tester, déboguer, exporter vers PC / Android',
+    },
+    {
+      module: 'M9',
+      title: 'Mini-projet : Créer son propre jeu',
+      duration: '2 h (coaching) + travail personnel',
+      objectives: 'Encadrer le participant pour réaliser son projet personnel',
+    },
+  ],
+  afterTable: [
+    "📘 Méthodologie pédagogique :",
+    "Cours interactifs + démonstrations en live",
+    "Ateliers pratiques (60% du temps)",
+    "Suivi individuel des projets",
+    "Apprentissage par projets et jeux existants",
+    "Références : Unity (C#), Godot (GDScript)",
+    "🎯 Compétences visées à la fin de la formation :",
+    "Utiliser un moteur de jeu (Unity ou Godot)",
+    "Implémenter des mécaniques de base (déplacement, collisions, scores…)",
+    "Structurer un jeu avec des scènes et scripts",
+    "Publier un jeu jouable",
+    "Comprendre les étapes de production d’un jeu",
+    "🧪 Évaluation :",
+    "Contrôle continu à travers des mini-ateliers pratiques",
+    "Évaluation finale par présentation du jeu développé (pitch + test)",
+    "📂 Livrables attendus :",
+    "Cahier de conception de jeu (Game Design Document)",
+    "Fichiers source du jeu",
+    "Export du jeu en .exe ou .apk",
+    "Attestation de formation + appréciation du projet final"
+  ]
+};
+
 const programmes = {
-  "Développement – Initiation et Pratique Professionnelle": [
-    "Programme content will be provided."
+  "Développement des Jeux Vidéo": [],
+  "Formation en Robotique & Arduino": [
+    "formation en Robotique & Arduino sur 3 mois (45 heures",
+    "Objectif de la formation :",
+    "À la fin de cette formation, les participants seront capables de concevoir et de réaliser des projets robotiques simples à l’aide de la plateforme Arduino, tout en maîtrisant les bases de la programmation, des capteurs et des moteurs.",
+    "Programme détaillé :",
+    "Mois 1 : Introduction à Arduino et bases de l’électronique (15 heures)",
+    "Semaine 1 : Introduction à la robotique et à Arduino",
+    "Durée : 5 heures",
+    "Présentation de la robotique et des applications.",
+    "Introduction à Arduino : Qu'est-ce que l'Arduino ? Histoire et évolution.",
+    "Installation de l’environnement Arduino IDE.",
+    "Présentation de la carte Arduino : Types de cartes, broches, et connexions.",
+    "Premier projet : Clignotement d'une LED (Blink) avec Arduino.",
+    "Semaine 2 : Bases de l’électronique et fonctionnement d’Arduino",
+    "Durée : 5 heures",
+    "Composants de base : résistances, diodes, transistors, moteurs, capteurs.",
+    "Schémas de circuits : Lecture et création.",
+    "Utilisation des entrées et sorties numériques (digitalRead, digitalWrite).",
+    "Exercice pratique : Contrôle d'une LED via un bouton.",
+    "Semaine 3 : Introduction aux capteurs et aux actionneurs",
+    "Durée : 5 heures",
+    "Sensibilité et fonctionnement des capteurs (Température, lumière, distance).",
+    "Introduction aux actionneurs : moteurs à courant continu, servomoteurs, moteurs pas à pas.",
+    "Exercice pratique : Mesurer la température avec un capteur et allumer une LED selon la température.",
+    "Mois 2 : Programmation avancée et premiers projets robotiques (15 heures)",
+    "Semaine 4 : Programmation avancée avec Arduino",
+    "Durée : 5 heures",
+    "Structure des programmes Arduino : Boucles, conditions et variables.",
+    "Gestion du temps avec delay() et millis().",
+    "Lecture et écriture analogiques (analogRead, analogWrite).",
+    "Exercice pratique : Contrôle de la luminosité d'une LED avec un potentiomètre.",
+    "Semaine 5 : Contrôle de moteurs et introduction à la robotique mobile",
+    "Durée : 5 heures",
+    "Contrôle de moteurs à courant continu avec un pont en H.",
+    "Utilisation d’un contrôleur de moteur (L298N).",
+    "Introduction aux robots mobiles : concept de châssis et de déplacement.",
+    "Exercice pratique : Création d’un robot mobile à 2 roues.",
+    "Semaine 6 : Utilisation des capteurs de distance et construction de robots autonomes",
+    "Durée : 5 heures",
+    "Introduction au capteur de distance (Ultrason HC-SR04).",
+    "Programmation du robot pour éviter les obstacles.",
+    "Exercice pratique : Création d’un robot autonome capable d'éviter les obstacles.",
+    "Mois 3 : Projets avancés et perfectionnement (15 heures)",
+    "Semaine 7 : Robot suiveur de ligne et introduction aux servomoteurs",
+    "Durée : 5 heures",
+    "Utilisation des capteurs de ligne (suiveurs de ligne IR).",
+    "Contrôle des moteurs et des servomoteurs pour suivre une ligne.",
+    "Exercice pratique : Construction d’un robot suiveur de ligne.",
+    "Semaine 8 : Projets robotiques complexes",
+    "Durée : 5 heures",
+    "Réalisation d’un projet combinant plusieurs capteurs et actionneurs.",
+    "Exercice pratique : Création d’un robot mobile avec prise d’objets (bras robotique simple).",
+    "Programmation d’un robot mobile contrôlé par capteurs de proximité.",
+    "Semaine 9 : Finalisation des projets et présentation",
+    "Durée : 5 heures",
+    "Finalisation des projets des participants.",
+    "Tests, débogage et ajustements des projets.",
+    "Présentation des projets devant un jury ou en groupe.",
+    "Évaluation finale : Analyse de la performance et retour sur les projets.",
+    "Évaluation et validation des compétences :",
+    "Évaluations pratiques à la fin de chaque mois.",
+    "Rapport écrit sur chaque projet réalisé.",
+    "Présentation orale et démonstration d’un projet à la fin de la formation.",
+    "Matériel requis :",
+    "Carte Arduino Uno ou compatible.",
+    "Câbles de connexion.",
+    "Capteurs (température, lumière, distance).",
+    "Moteurs à courant continu et servomoteurs.",
+    "Châssis de robot (facultatif).",
+    "Ordinateur avec Arduino IDE installé."
+  ],
+  "Initiation à l’Intelligence Artificielle et à ses Applications ": [
+    "🎓 Intitulé de la formation :",
+    "Initiation à l’Intelligence Artificielle et à ses Applications",
+    "🕒 Durée :",
+    "3 mois (soit environ 1 séance de 3h/semaine)",
+    "Total : 45 heures",
+    "🎯 Objectifs généraux :",
+    "Comprendre les fondements de l’intelligence artificielle",
+    "S’initier aux outils et techniques de base (Python, Machine Learning, IA générative)",
+    "Être capable de développer un projet simple intégrant des techniques d’IA",
+    "🧠 Structure du programme",
+    "Module 1 : Introduction à l’intelligence artificielle (6 heures)",
+    "Définitions et historique de l’IA",
+    "Les grands domaines de l’IA : ML, NLP, Vision, IA générative…",
+    "Exemples d’applications concrètes (santé, industrie, marketing, éducation…)",
+    "Débat éthique et impact de l’IA sur le marché de l’emploi",
+    "Module 2 : Environnement de développement IA (Python & outils) (9 heures)",
+    "Installation des outils : Python, Jupyter Notebook, Google Colab",
+    "Les bases du langage Python appliqué à l’IA",
+    "Variables, conditions, boucles, fonctions",
+    "Manipulation de données avec Numpy et Pandas",
+    "Introduction à Matplotlib et Seaborn pour la visualisation de données",
+    "Module 3 : Machine Learning – Apprentissage supervisé et non supervisé (12 heures)",
+    "Concepts clés : features, labels, dataset, overfitting",
+    "Méthodologie : préparation des données, normalisation, splitting",
+    "Algorithmes supervisés :",
+    "Régression linéaire, KNN, arbres de décision, SVM",
+    "Algorithmes non supervisés : K-means, PCA",
+    "Travaux pratiques avec Scikit-learn",
+    "Évaluation des performances (accuracy, confusion matrix…)",
+    "Module 4 : Initiation à l’intelligence artificielle générative (IAg) (6 heures)",
+    "Comprendre les modèles génératifs : GANs, LLMs",
+    "Introduction à ChatGPT et DALL·E",
+    "Cas pratiques : génération de texte, résumé automatique, image via prompt.",
+    "Module 5 : Mini-projet pratique d’intégration (9 heures)",
+    "Conception d’un mini-projet en groupe ou individuel",
+    "Exemple : assistant intelligent, chatbot simple, système de recommandation, reconnaissance d’images ou génération de contenu",
+    "Encadrement méthodologique (étapes du projet IA)",
+    "Présentation finale et évaluation des projets",
+    "📋 Méthodes pédagogiques :",
+    "Apports théoriques et démonstrations guidées",
+    "Travaux pratiques sur ordinateurs",
+    "Études de cas",
+    "Mini-projets en groupes",
+    "✅ Modalités d’évaluation :",
+    "Évaluations continues (QCM, exercices)",
+    "Évaluation finale : présentation du mini-projet + rapport synthétique",
+    "📜 Attestation de formation :",
+    "Délivrée à l’issue de la formation après validation du projet final."
+  ],
+  "Formation en Développement Web": [
+    "📚 Intitulé de la formation :",
+    "Intitulé : Formation en Développement Web",
+    "Durée totale : 65 heures",
+    "Période : sur 4 mois (environ 4h/semaine)",
+    "Public cible : jeunes diplômés, demandeurs d'emploi, reconversion professionnelle, étudiants",
+    "Prérequis : notions de base en informatique et navigation web",
+    "🎯 Objectifs de la Formation",
+    "Acquérir les bases du développement web (frontend et backend)",
+    "Créer un site web dynamique en utilisant des langages et outils modernes",
+    "Comprendre les principes de fonctionnement des sites et applications web",
+    "Être capable de publier un site en ligne",
+    "🧱 Contenu de la Formation",
+    "🔹 Module 1 : Introduction au Développement Web (5h)",
+    "Présentation des technologies web (Frontend vs Backend)",
+    "Fonctionnement d’un site web (client, serveur, DNS, hébergement)",
+    "Outils du développeur (éditeur de code, navigateur, GitHub)",
+    "🔹 Module 2 : HTML5 & Structure Web (10h)",
+    "Balises de base : html, head, body, div, header, footer",
+    "Titres, paragraphes, listes, liens, tableaux",
+    "Formulaires (input, textarea, select, bouton)",
+    "Projet pratique : page de présentation personnelle",
+    "🔹 Module 3 : CSS3 & Mise en Forme (10h)",
+    "Sélecteurs CSS, classes et identifiants",
+    "Couleurs, polices, marges, paddings, borders",
+    "Positionnement, Flexbox, Grid",
+    "Media Queries et responsive design",
+    "Projet pratique : landing page responsive",
+    "🔹 Module 4 : Introduction à JavaScript (10h)",
+    "Syntaxe de base : variables, fonctions, conditions, boucles",
+    "DOM : sélectionner, modifier et créer des éléments",
+    "Événements utilisateurs",
+    "Mini-projet : calculatrice ou to-do list interactive",
+    "🔹 Module 5 : Développement Web Backend avec PHP & MySQL (12h)",
+    "Introduction au langage PHP",
+    "Traitement des formulaires",
+    "Connexion à une base de données MySQL",
+    "Requêtes CRUD (Create, Read, Update, Delete)",
+    "Sécurité de base (injection SQL, validation)",
+    "Projet pratique : mini-blog avec base de données",
+    "🔹 Module 6 : Gestion de projet & Git/GitHub (5h)",
+    "Introduction à Git et GitHub",
+    "Commandes de base : init, commit, push, pull",
+    "Collaboration en ligne",
+    "Organisation d’un projet (structure de fichiers, versionnage)",
+    "🔹 Module 7 : Déploiement Web & Hébergement (3h)",
+    "Achat d’un nom de domaine et hébergement web",
+    "Transfert de fichiers via FTP",
+    "Utilisation de services gratuits (ex : 000webhost, GitHub Pages)",
+    "🔹 Module 8 : Projet de Fin de Formation (10h)",
+    "Réalisation d’un projet personnel ou imposé (ex : site vitrine, portfolio, blog)",
+    "Conception, développement, mise en ligne",
+    "Soutenance devant un jury (présentation + démonstration)",
+    "📚 Méthodologie pédagogique",
+    "Formation en présentiel ou hybride",
+    "30% théorie / 70% pratique",
+    "Exercices dirigés, projets, challenges",
+    "Évaluation continue + évaluation finale (projet)",
+    "📜 Évaluation et Attestation",
+    "Contrôle continu (20%)",
+    "Projet final (60%)",
+    "Assiduité et participation (20%)",
+    "Attestation de formation remise en fin de parcours"
   ]
 };
 
 const Developpement = () => {
-  const [selectedProgram, setSelectedProgram] = useState("Développement – Initiation et Pratique Professionnelle");
+  const [selectedProgram, setSelectedProgram] = useState("Développement des Jeux Vidéo");
+  const [isAssistantOpen, setIsAssistantOpen] = useState(false);
 
   const boldKeywords = [
     "Module",
@@ -29,26 +307,59 @@ const Developpement = () => {
     "Durée totale",
     "Rythme suggéré",
     "MODULE",
-    "🎯 Objectif général :",
-    "⏳ Durée totale",
-    "Période :",
-    "Rythme :",
-    "Nombre de modules :",
-    "Niveau requis :",
-    "📚 Programme par modules :",
-    "🔹 Module 1 :",
-    "🔹 Module 2 :",
-    "🔹 Module 3 :",
-    "🔹 Module 4 :",
-    "🔹 Module 5 :",
-    "🧑‍🏫 Méthodologie :",
-    "✅ Compétences visées :",
-    "📄 Livrables à fournir :"
+    "🎯 Objectifs généraux :",
+    "🕒 Durée :",
+    "🧠 Structure du programme",
+    "Module 1 : Introduction à l’intelligence artificielle (6 heures)",
+    "Module 2 : Environnement de développement IA (Python & outils) (9 heures)",
+    "Module 3 : Machine Learning – Apprentissage supervisé et non supervisé (12 heures)",
+    "Module 4 : Initiation à l’intelligence artificielle générative (IAg) (6 heures)",
+    "Module 5 : Mini-projet pratique d’intégration (9 heures)",
+    "📋 Méthodes pédagogiques :",
+    "✅ Modalités d’évaluation :",
+    "📜 Attestation de formation :",
+    "🎓 Intitulé de la formation :",
+    "📚 Intitulé de la formation :",
+    "🎯 Objectifs de la Formation",
+    "🧱 Contenu de la Formation",
+    "🔹 Module 1 : Introduction au Développement Web (5h)",
+    "🔹 Module 2 : HTML5 & Structure Web (10h)",
+    "🔹 Module 3 : CSS3 & Mise en Forme (10h)",
+    "🔹 Module 4 : Introduction à JavaScript (10h)",
+    "🔹 Module 5 : Développement Web Backend avec PHP & MySQL (12h)",
+    "🔹 Module 6 : Gestion de projet & Git/GitHub (5h)",
+    "🔹 Module 7 : Déploiement Web & Hébergement (3h)",
+    "🔹 Module 8 : Projet de Fin de Formation (10h)",
+    "📚 Méthodologie pédagogique",
+    "📜 Évaluation et Attestation",
+    "🎮 Programme de Formation : Développement des Jeux Vidéo",
+    "✅ Objectifs Généraux :",
+    "🧱 Structure de la formation (modulaire)",
+    "📘 Méthodologie pédagogique :",
+    "🎯 Compétences visées à la fin de la formation :",
+    "🧪 Évaluation :",
+    "📂 Livrables attendus :",
+    "Objectif de la formation :",
+    "Programme détaillé :",
+    "Mois 1 : Introduction à Arduino et bases de l’électronique (15 heures)",
+    "Semaine 1 : Introduction à la robotique et à Arduino",
+    "Semaine 2 : Bases de l’électronique et fonctionnement d’Arduino",
+    "Semaine 3 : Introduction aux capteurs et aux actionneurs",
+    "Mois 2 : Programmation avancée et premiers projets robotiques (15 heures)",
+    "Semaine 4 : Programmation avancée avec Arduino",
+    "Semaine 5 : Contrôle de moteurs et introduction à la robotique mobile",
+    "Semaine 6 : Utilisation des capteurs de distance et construction de robots autonomes",
+    "Mois 3 : Projets avancés et perfectionnement (15 heures)",
+    "Semaine 7 : Robot suiveur de ligne et introduction aux servomoteurs",
+    "Semaine 8 : Projets robotiques complexes",
+    "Semaine 9 : Finalisation des projets et présentation",
+    "Évaluation et validation des compétences :",
+    "Matériel requis :",
   ];
 
   return (
     <div style={{ fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif", color: '#1e293b' }}>
-      <CoursesHeader />
+      <HeaderOne />
       {/* Hero Section */}
       <section style={{
         background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
@@ -78,6 +389,7 @@ const Developpement = () => {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          onClick={() => setIsAssistantOpen(true)}
           style={{
             marginTop: '2.5rem',
             backgroundColor: '#facc15',
@@ -93,7 +405,7 @@ const Developpement = () => {
             zIndex: 1
           }}
         >
-          Contactez-Nous
+          Assistant IA
         </motion.button>
       </section>
 
@@ -129,7 +441,7 @@ const Developpement = () => {
       {/* Programme de Cours Title and Buttons */}
       <section style={{ maxWidth: 900, margin: '2rem auto', textAlign: 'center' }}>
         <h2 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '1rem', color: '#1e293b' }}>Programme de Cours</h2>
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginBottom: '2rem' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
           {Object.keys(programmes).map((program) => (
             <button
               key={program}
@@ -152,39 +464,116 @@ const Developpement = () => {
           ))}
         </div>
         {/* Programme Content */}
-        <motion.ul
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: { opacity: 0, y: 20 },
-            visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.1 } }
-          }}
-          style={{ fontSize: '1.1rem', color: '#374151', listStyleType: 'none', paddingLeft: 0, lineHeight: '1.8', maxWidth: 900, margin: '0 auto' }}
-        >
-          {(programmes as Record<string, string[]>)[selectedProgram].map((item: string, index: number) => {
-            const isBold = boldKeywords.some(keyword => item.startsWith(keyword));
-            return (
-              <motion.li
-                key={index}
-                variants={{
-                  hidden: { opacity: 0, x: -20 },
-                  visible: { opacity: 1, x: 0 }
-                }}
-                style={{
-                  display: 'flex',
-                  alignItems: 'flex-start',
-                  marginBottom: '0.5rem',
-                  whiteSpace: 'pre-line',
-                  fontWeight: isBold ? 'bold' : 'normal',
-                  paddingLeft: isBold ? '0' : '1.5rem'
-                }}
-              >
-                {!isBold && <CheckIcon />}
-                <span>{item}</span>
-              </motion.li>
-            );
-          })}
-        </motion.ul>
+        {selectedProgram === "Développement des Jeux Vidéo" ? (
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
+            <ul style={{ fontSize: '1.1rem', color: '#374151', listStyleType: 'none', paddingLeft: 0, lineHeight: '1.8', maxWidth: 900, margin: '0 auto', textAlign: 'left' }}>
+              {gameDevProgram.beforeTable.map((item: string, index: number) => {
+                const isBold = boldKeywords.some(keyword => item.startsWith(keyword));
+                return (
+                  <motion.li
+                    key={index}
+                    variants={{
+                      hidden: { opacity: 0, x: -20 },
+                      visible: { opacity: 1, x: 0 }
+                    }}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'flex-start',
+                      marginBottom: '0.5rem',
+                      whiteSpace: 'pre-line',
+                      fontWeight: isBold ? 'bold' : 'normal',
+                      paddingLeft: isBold ? '0' : '1.5rem'
+                    }}
+                  >
+                    {!isBold && <CheckIcon />}
+                    <span>{item}</span>
+                  </motion.li>
+                );
+              })}
+            </ul>
+            <div style={{ overflowX: 'auto', margin: '2rem 0' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" }}>
+                <thead>
+                  <tr style={{ backgroundColor: '#4a5568', color: 'white' }}>
+                    <th style={{ padding: '12px', border: '1px solid #ddd', textAlign: 'left' }}>Module</th>
+                    <th style={{ padding: '12px', border: '1px solid #ddd', textAlign: 'left' }}>Intitulé du module</th>
+                    <th style={{ padding: '12px', border: '1px solid #ddd', textAlign: 'left' }}>Durée (heures)</th>
+                    <th style={{ padding: '12px', border: '1px solid #ddd', textAlign: 'left' }}>Objectifs pédagogiques principaux</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {gameDevProgram.tableData.map((row, index) => (
+                    <tr key={index} style={{ backgroundColor: index % 2 === 0 ? '#f7fafc' : '#edf2f7' }}>
+                      <td style={{ padding: '12px', border: '1px solid #ddd' }}>{row.module}</td>
+                      <td style={{ padding: '12px', border: '1px solid #ddd' }}>{row.title}</td>
+                      <td style={{ padding: '12px', border: '1px solid #ddd' }}>{row.duration}</td>
+                      <td style={{ padding: '12px', border: '1px solid #ddd' }}>{row.objectives}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <ul style={{ fontSize: '1.1rem', color: '#374151', listStyleType: 'none', paddingLeft: 0, lineHeight: '1.8', maxWidth: 900, margin: '0 auto', textAlign: 'left' }}>
+              {gameDevProgram.afterTable.map((item: string, index: number) => {
+                const isBold = boldKeywords.some(keyword => item.startsWith(keyword));
+                return (
+                  <motion.li
+                    key={index}
+                    variants={{
+                      hidden: { opacity: 0, x: -20 },
+                      visible: { opacity: 1, x: 0 }
+                    }}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'flex-start',
+                      marginBottom: '0.5rem',
+                      whiteSpace: 'pre-line',
+                      fontWeight: isBold ? 'bold' : 'normal',
+                      paddingLeft: isBold ? '0' : '1.5rem'
+                    }}
+                  >
+                    {!isBold && <CheckIcon />}
+                    <span>{item}</span>
+                  </motion.li>
+                );
+              })}
+            </ul>
+          </motion.div>
+        ) : (
+          <motion.ul
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.1 } }
+            }}
+            style={{ fontSize: '1.1rem', color: '#374151', listStyleType: 'none', paddingLeft: 0, lineHeight: '1.8', maxWidth: 900, margin: '0 auto' }}
+          >
+            {(programmes as Record<string, string[]>)[selectedProgram].map((item: string, index: number) => {
+              const isBold = boldKeywords.some(keyword => item.startsWith(keyword));
+              return (
+                <motion.li
+                  key={index}
+                  variants={{
+                    hidden: { opacity: 0, x: -20 },
+                    visible: { opacity: 1, x: 0 }
+                  }}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    marginBottom: '0.5rem',
+                    whiteSpace: 'pre-line',
+                    fontWeight: isBold ? 'bold' : 'normal',
+                    paddingLeft: isBold ? '0' : '1.5rem'
+                  }}
+                >
+                  {!isBold && <CheckIcon />}
+                  <span>{item}</span>
+                </motion.li>
+              );
+            })}
+          </motion.ul>
+        )}
       </section>
 
       {/* Prérequis Section */}
@@ -204,7 +593,7 @@ const Developpement = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           style={{ fontSize: '1.1rem', lineHeight: '1.6', position: 'relative', zIndex: 1 }}
         >
-          Programme content will be provided.
+          Une connaissance de base en informatique et en logique de programmation est recommandée.
         </motion.p>
       </section>
 
@@ -217,11 +606,14 @@ const Developpement = () => {
           transition={{ duration: 0.8 }}
           style={{ margin: 0, fontSize: '1rem', position: 'relative', zIndex: 1 }}
         >
-          &copy; {new Date().getFullYear()} TieLearn. Tous droits réservés.
+          &copy; {new Date().getFullYear()} TieLearn . Tous droits réservés.
         </motion.p>
       </footer>
+      {isAssistantOpen && <CourseAIAssistant pageType="Développement" isOpen={isAssistantOpen} onClose={() => setIsAssistantOpen(false)} />}
     </div>
   );
 };
 
 export default Developpement;
+
+

@@ -40,7 +40,7 @@ const HeaderEight = () => {
                     </div>
                     <div className="tg-header__contact">
                       <div className="icon">
-                        <i className="skillgro-phone-call"></i>
+                        <i className="TieLearn -phone-call"></i>
                       </div>
                       <div className="content">
                         <span>Call to Question</span>

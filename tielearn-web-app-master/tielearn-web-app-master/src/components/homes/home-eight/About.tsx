@@ -19,7 +19,7 @@ const About = () => {
                      <Image src={about_img2} alt="img" data-aos="fade-left" data-aos-delay="400" />
                      <div className="about__success" data-aos="fade-up" data-aos-delay="400">
                         <div className="icon">
-                           <i className="skillgro-diploma-1"></i>
+                           <i className="TieLearn -diploma-1"></i>
                         </div>
                         <div className="content">
                            <h2 className="title">86%</h2>
