@@ -7,5 +7,8 @@ jobs:
   hello:
     runs-on: ubuntu-latest
     steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+        
       - name: Say hello
         run: echo "Hello from TieLearn CI!"
