@@ -13,7 +13,6 @@ jobs:
           node-version: 25.0.0
 
       - name: install frontend dependencies
-        working-directory: tielearn-web-app-master/tielearn-web-app-master
         run: npm ci
 
       - name: checkout code
