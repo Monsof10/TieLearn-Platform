@@ -18,5 +18,8 @@ jobs:
       - name: install frontend dependencies
         run: cd tielearn-web-app-master/tielearn-web-app-master/ && npm ci
 
+      - name: build Tiealearn frontend
+        run: cd tielearn-web-app-master/tielearn-web-app-master/ && npm run build
+
       - name: Say hello
         run: echo "Hello from TieLearn CI!"
