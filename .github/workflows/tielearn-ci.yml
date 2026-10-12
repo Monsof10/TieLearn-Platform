@@ -12,11 +12,11 @@ jobs:
         with:
           node-version: 25.0.0
 
-      - name: install frontend dependencies
-        run: cd tielearn-web-app-master/tielearn-web-app-master && npm ci
-
       - name: checkout code
         uses: actions/checkout@v4
+
+      - name: install frontend dependencies
+        run: cd tielearn-web-app-master/tielearn-web-app-master/ && npm ci
 
       - name: Say hello
         run: echo "Hello from TieLearn CI!"
