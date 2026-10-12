@@ -1,9 +1,11 @@
-name : TieLearn Docker CI 
-on : 
-    workflow_dispatch:
+name: TieLearn Docker CI
+
+on:
+  workflow_dispatch:
+
 jobs:
-    hello:
-        runs-on:ubuntu-latest
-        steps:
-            - name: print Hello
-              run: echo "Hello , TieLearn CI is Working"
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say hello
+        run: echo "Hello from TieLearn CI!"
