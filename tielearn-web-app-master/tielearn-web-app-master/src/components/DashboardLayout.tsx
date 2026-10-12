@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import './DashboardLayout.scss';
 
@@ -31,9 +32,9 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children, sidebarItem
         animate="visible"
         variants={sidebarVariants}
       >
-        <a href="/" className="logo-link">
+        <Link href="/" className="logo-link">
           <div className="logo">{logoText || 'TieLearn  Admin'}</div>
-        </a>
+        </Link>
         <nav className="nav">
           <ul className="nav-list">
             {sidebarItems.map((item, idx) => (
@@ -44,9 +45,9 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children, sidebarItem
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: idx * 0.1 }}
               >
-                <a href={item.href} className="nav-link">
+                <Link href={item.href} className="nav-link">
                   {item.label}
-                </a>
+                </Link>
               </motion.li>
             ))}
           </ul>

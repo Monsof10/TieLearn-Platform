@@ -7,7 +7,7 @@ const openai = new OpenAI({
   dangerouslyAllowBrowser: true
 });
 
-export const getTieLearn OllamaResponse = async (prompt) => {
+export const getTieLearnOllamaResponse = async (prompt) => {
   try {
     if (!prompt) {
       throw new Error("Prompt is required");

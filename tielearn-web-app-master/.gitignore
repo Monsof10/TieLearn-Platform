@@ -1,0 +1,21 @@
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Node.js dependencies and builds
+node_modules/
+.next/
+
+# Git internals
+.git/
+
+# Cosign private signing key and local signing configuration
+cosign.key
+cosign-password.txt
+local-signing-config.json
+
+# Generated security reports and SBOMs
+frontend-apk-sbom.txt
+frontend-npm-sbom.txt
+tielearn-frontend-sbom.json

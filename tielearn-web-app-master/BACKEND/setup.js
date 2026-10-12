@@ -14,44 +14,8 @@ async function setupDatabase() {
   try {
     console.log('Setting up database...');
 
-    // Create users table if it doesn't exist
-    await pool.query(`
-      CREATE TABLE IF NOT EXISTS users (
-        id SERIAL PRIMARY KEY,
-        username VARCHAR(100) UNIQUE NOT NULL,
-        email VARCHAR(255) UNIQUE NOT NULL,
-        password_hash TEXT NOT NULL,
-        role VARCHAR(50) DEFAULT 'student',
-        first_name VARCHAR(100),
-        last_name VARCHAR(100),
-        certification VARCHAR(255),
-        created_at TIMESTAMP DEFAULT NOW()
-      )
-    `);
-    console.log('Users table ensured');
-
-    // Create certificates table if it doesn't exist
-    await pool.query(`
-      CREATE TABLE IF NOT EXISTS certificates (
-        id SERIAL PRIMARY KEY,
-        title VARCHAR(255) NOT NULL,
-        description TEXT,
-        created_by INTEGER REFERENCES users(id) ON DELETE SET NULL,
-        created_at TIMESTAMP DEFAULT NOW()
-      )
-    `);
-
-    // Create user_certificates table if it doesn't exist
-    await pool.query(`
-      CREATE TABLE IF NOT EXISTS user_certificates (
-        id SERIAL PRIMARY KEY,
-        user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-        certificate_id INTEGER REFERENCES certificates(id) ON DELETE CASCADE,
-        awarded_at TIMESTAMP DEFAULT NOW(),
-        status VARCHAR(50) DEFAULT 'awarded'
-      )
-    `);
-    console.log('All tables ensured');
+    // Tables are created by db.js on application start. 
+    // This script now focuses on seeding the initial admin user.
 
     // Try to create admin user
     const hashedPassword = await bcrypt.hash('admin123', 10);

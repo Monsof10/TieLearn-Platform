@@ -1,4 +1,5 @@
 "use client"
+import { API_BASE } from '@/utils/api';
 import { toast } from 'react-toastify';
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
@@ -30,7 +31,7 @@ const LoginForm = () => {
    const onSubmit = async (data: FormData) => {
       dispatch(loginStart());
       try {
-         const response = await fetch('http://localhost:5000/api/auth/login', {
+         const response = await fetch(`${API_BASE}/auth/login`, {
             method: 'POST',
             headers: {
                'Content-Type': 'application/json',

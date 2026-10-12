@@ -63,12 +63,22 @@ const initDb = async () => {
     );
   `;
 
+  const createEnrollmentsTable = `
+    CREATE TABLE IF NOT EXISTS enrollments (
+      id SERIAL PRIMARY KEY,
+      user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+      course_id VARCHAR(100) NOT NULL,
+      enrolled_at TIMESTAMP DEFAULT NOW()
+    );
+  `;
+
   try {
     await pool.query(createUsersTable);
     await pool.query(alterUsersTable);
     await pool.query(createCertificatesTable);
     await pool.query(createUserCertificatesTable);
-    console.log('Ensured users, certificates, and user_certificates tables exist');
+    await pool.query(createEnrollmentsTable);
+    console.log('Ensured users, certificates, user_certificates, and enrollments tables exist');
   } catch (err) {
     console.error('Error creating tables:', err);
   }

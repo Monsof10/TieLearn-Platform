@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { API_BASE } from "@/utils/api";
 
 const AdminProfile = () => {
   const { token, user } = useSelector((state: any) => state.auth);
@@ -16,7 +17,7 @@ const AdminProfile = () => {
         return;
       }
       try {
-        const response = await fetch("http://localhost:5000/api/auth/profile", {
+        const response = await fetch(`${API_BASE}/auth/profile`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

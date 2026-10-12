@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import DashboardLayout from '@/components/DashboardLayout';
 import './UserProfile.scss'; // Reuse styles for now
-
+import { API_BASE } from '@/utils/api';
 // profile will be fetched from backend
 
 const sidebarItems = [
@@ -27,7 +27,7 @@ const UserSettings: React.FC = () => {
         return;
       }
       try {
-        const res = await fetch('http://localhost:5000/api/auth/profile', {
+        const res = await fetch(`${API_BASE}/auth/profile`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (!res.ok) throw new Error('Failed to fetch profile');

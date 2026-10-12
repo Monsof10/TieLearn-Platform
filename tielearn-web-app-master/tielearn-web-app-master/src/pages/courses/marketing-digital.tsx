@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import FloatingBubbles from '../../components/FloatingBubbles';
 import HeaderOne from '../../layouts/headers/HeaderOne';
 import CourseAIAssistant from '../../components/Ai/CourseAIAssistant';
@@ -9,6 +9,18 @@ const CheckIcon = () => (
     <path d="M20.285 6.709l-11.39 11.39-5.18-5.18 1.414-1.414 3.766 3.766 9.976-9.976z" />
   </svg>
 );
+
+const marketingImages = [
+  "1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg",
+  "WhatsApp Image 2024-11-09 at 12.15.22.jpeg",
+  "WhatsApp Image 2024-11-09 at 12.15.23 (1).jpeg",
+  "WhatsApp Image 2024-11-09 at 12.15.23.jpeg",
+  "WhatsApp Image 2024-11-09 at 12.15.24.jpeg",
+  "WhatsApp Image 2024-11-09 at 12.15.25 (1).jpeg",
+  "WhatsApp Image 2024-11-09 at 12.15.25 (2).jpeg",
+  "WhatsApp Image 2024-11-09 at 12.15.25.jpeg",
+  "WhatsApp Image 2024-11-09 at 12.15.26.jpeg"
+].map(img => `/assets/img/marketing/${img}`);
 
 const programmes = {
   "Marketing Digital : Fondamentaux et Pratique Professionnelle": [
@@ -91,6 +103,19 @@ const programmes = {
 const MarketingDigital = () => {
   const [selectedProgram, setSelectedProgram] = useState("Marketing Digital : Fondamentaux et Pratique Professionnelle");
   const [isAssistantOpen, setIsAssistantOpen] = useState(false);
+
+  // Slideshow State
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % marketingImages.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % marketingImages.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + marketingImages.length) % marketingImages.length);
 
   const boldKeywords = [
     "Module",
@@ -197,6 +222,49 @@ const MarketingDigital = () => {
             <p style={{ color: '#6b7280' }}>{desc}</p>
           </motion.div>
         ))}
+      </section>
+
+      {/* Slideshow Section */}
+      <section style={{ padding: '4rem 2rem', textAlign: 'center', backgroundColor: '#f3f4f6' }}>
+        <div style={{ position: 'relative', maxWidth: '450px', margin: '0 auto', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
+          <div style={{ position: 'relative', aspectRatio: '16/9' }}>
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={currentSlide}
+                src={marketingImages[currentSlide]}
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -100 }}
+                transition={{ duration: 0.5 }}
+                style={{ width: '100%', height: '100%', objectFit: 'contain', position: 'absolute', top: 0, left: 0 }}
+                alt={`Diapositive ${currentSlide + 1}`}
+              />
+            </AnimatePresence>
+
+            {/* Buttons */}
+            <button
+              onClick={prevSlide}
+              style={{ position: 'absolute', left: '10px', top: '50%', transform: 'translateY(-50%)', backgroundColor: 'rgba(0,0,0,0.5)', color: 'white', border: 'none', borderRadius: '50%', width: '40px', height: '40px', cursor: 'pointer', zIndex: 10 }}
+            >
+              ❮
+            </button>
+            <button
+              onClick={nextSlide}
+              style={{ position: 'absolute', right: '10px', top: '50%', transform: 'translateY(-50%)', backgroundColor: 'rgba(0,0,0,0.5)', color: 'white', border: 'none', borderRadius: '50%', width: '40px', height: '40px', cursor: 'pointer', zIndex: 10 }}
+            >
+              ❯
+            </button>
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '8px', padding: '10px', background: 'white' }}>
+            {marketingImages.map((_, idx) => (
+              <div
+                key={idx}
+                onClick={() => setCurrentSlide(idx)}
+                style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: currentSlide === idx ? '#4f46e5' : '#d1d5db', cursor: 'pointer' }}
+              />
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* Programme de Cours Title and Buttons */}

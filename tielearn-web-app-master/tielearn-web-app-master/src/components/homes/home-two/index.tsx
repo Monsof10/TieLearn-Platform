@@ -29,7 +29,7 @@ const HomeTwo = () => {
             <Newsletter />
             <EventArea />
             <Blog style={true} />
-            <InstructorTwo style={true} />
+            <InstructorTwo  />
          </main>
          <FooterOne style={true} />
       </>

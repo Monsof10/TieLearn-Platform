@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './CourseAIAssistant.css';
 import courseAssistantData from './courseAssistantData';
-import { getTieLearn OllamaResponse } from '../../utils/TieLearn OllamaUtils';
+import { getTieLearnOllamaResponse } from '../../utils/skillgroOllamaUtils';
 
 interface CourseAIAssistantProps {
   pageType: string;
@@ -13,6 +13,7 @@ interface Message {
   type: 'user' | 'assistant';
   text: string;
   topics?: { title: string; content: string }[];
+  questions?: { question: string; answer: string }[];
   isFormatted?: boolean;
 }
 
@@ -41,14 +42,16 @@ const CourseAIAssistant: React.FC<CourseAIAssistantProps> = ({ pageType, isOpen,
     if (isOpen && pageType) {
       const topics = (courseAssistantData as any)[pageType]?.topics || {};
       const topicTitles = Object.keys(topics);
+      const questions = (courseAssistantData as any)[pageType]?.questions || [];
 
       setMessages([{
         type: 'assistant',
-        text: `Bienvenue ! Je suis votre assistant IA pour ${pageType.toUpperCase()}. Choisissez un sujet :`,
+        text: `Bienvenue ! Je suis votre assistant IA pour ${pageType.toUpperCase()}. Choisissez un sujet ou une question fréquente :`,
         topics: topicTitles.map(title => ({
           title,
           content: topics[title]?.content
-        }))
+        })),
+        questions: questions
       }]);
     }
   }, [isOpen, pageType]);
@@ -92,17 +95,31 @@ const CourseAIAssistant: React.FC<CourseAIAssistantProps> = ({ pageType, isOpen,
     const topicData = (courseAssistantData as any)[pageType]?.topics[topic.title];
     if (topicData) {
       setMessages(prevMessages => [...prevMessages,
-        {
-          type: 'user' as const,
-          text: `Parlez-moi de ${topic.title}`
-        },
-        {
-          type: 'assistant' as const,
-          text: topicData.content,
-          isFormatted: true
-        }
+      {
+        type: 'user' as const,
+        text: `Parlez-moi de ${topic.title}`
+      },
+      {
+        type: 'assistant' as const,
+        text: topicData.content,
+        isFormatted: true
+      }
       ]);
     }
+  };
+
+  const handleQuestionClick = (question: { question: string; answer: string }) => {
+    setMessages(prevMessages => [...prevMessages,
+    {
+      type: 'user' as const,
+      text: question.question
+    },
+    {
+      type: 'assistant' as const,
+      text: question.answer,
+      isFormatted: true
+    }
+    ]);
   };
 
   const handleSendMessage = async (e?: React.FormEvent) => {
@@ -144,13 +161,13 @@ const CourseAIAssistant: React.FC<CourseAIAssistantProps> = ({ pageType, isOpen,
       });
 
       // Create a concise prompt
-      const prompt = `Contexte: ${pageType} formation.
-Q: ${userMessage.text}
-Donnez une réponse brève et ciblée sur ${pageType}.`;
+      const prompt = `Contexte: Formation ${pageType}.
+Question: ${userMessage.text}
+Donnez une réponse brève et ciblée sur ${pageType} en français.`;
 
       // Race between the response and timeout
       const response: string = await Promise.race([
-        getTieLearn OllamaResponse(prompt),
+        getTieLearnOllamaResponse(prompt),
         timeoutPromise
       ]) as string;
 
@@ -191,14 +208,16 @@ Donnez une réponse brève et ciblée sur ${pageType}.`;
   const clearMessages = () => {
     const topics = (courseAssistantData as any)[pageType]?.topics || {};
     const topicTitles = Object.keys(topics);
+    const questions = (courseAssistantData as any)[pageType]?.questions || [];
 
     setMessages([{
       type: 'assistant',
-      text: `Bienvenue ! Je suis votre assistant IA pour ${pageType ? pageType.toUpperCase() : ''}. Choisissez un sujet :`,
+      text: `Bienvenue ! Je suis votre assistant IA pour ${pageType ? pageType.toUpperCase() : ''}. Choisissez un sujet ou une question fréquente :`,
       topics: topicTitles.map(title => ({
         title,
         content: topics[title]?.content
-      }))
+      })),
+      questions: questions
     }]);
   };
 
@@ -241,6 +260,21 @@ Donnez une réponse brève et ciblée sur ${pageType}.`;
                         onClick={() => handleTopicClick(topic)}
                       >
                         {topic.title}
+                      </button>
+                    ))}
+                  </div>
+                )}
+                {message.questions && (
+                  <div className="course-ai-topics" style={{ marginTop: '10px' }}>
+                    <p style={{ fontSize: '0.9em', color: '#666', marginBottom: '5px' }}>Questions fréquentes :</p>
+                    {message.questions.map((q, qIndex) => (
+                      <button
+                        key={qIndex}
+                        className="course-ai-topic-button"
+                        onClick={() => handleQuestionClick(q)}
+                        style={{ display: 'block', width: '100%', textAlign: 'left', marginBottom: '5px' }}
+                      >
+                        {q.question}
                       </button>
                     ))}
                   </div>
