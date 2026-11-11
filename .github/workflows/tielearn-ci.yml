@@ -7,19 +7,5 @@ jobs:
   hello:
     runs-on: ubuntu-latest
     steps:
-      - name: set up node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 25.0.0
-
-      - name: checkout code
-        uses: actions/checkout@v4
-
-      - name: install frontend dependencies
-        run: cd tielearn-web-app-master/tielearn-web-app-master/ && npm ci
-
-      - name: build Tiealearn frontend
-        run: cd tielearn-web-app-master/tielearn-web-app-master/ && npm run build
-
       - name: Say hello
         run: echo "Hello from TieLearn CI!"
