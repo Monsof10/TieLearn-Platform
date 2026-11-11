@@ -1,0 +1,45 @@
+---
+- name: install nginx
+  ansible.builtin.apt:
+    name: nginx
+    state: present
+  become: true
+
+
+- name: remove def nginx site
+  ansible.builtin.file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
+  become: true
+  notify: reload nginx
+
+
+- name: deploy nginx config
+  ansible.builtin.template:
+    src: nginx.conf.j2
+    dest: /etc/nginx/conf.d/tielearn.conf
+    owner: root
+    group: root
+    mode: '0644'
+  become: true
+  notify: reload nginx
+
+- name: check nginx config
+  ansible.builtin.command:
+    cmd: nginx -t
+  become: true
+  register: nginx_config_check
+  changed_when: false
+
+
+- name: show nginx config check
+  ansible.builtin.debug:
+    msg: "{{ nginx_config_check.stderr  }}"
+
+
+- name: start nginx server
+  ansible.builtin.service:
+    name: nginx
+    state: started
+    enabled: true
+  become: true

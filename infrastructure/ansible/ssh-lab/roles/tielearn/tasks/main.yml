@@ -1,0 +1,52 @@
+---
+- name: install req packages
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: present
+  become: true
+  loop:
+   - curl
+   - git
+   - unzip
+
+- name: create tielearn diretory
+  ansible.builtin.file:
+    path: /opt/tielearn
+    state: directory
+  become: true
+
+- name: create tielearn group
+  ansible.builtin.group:
+    name: tielearn
+    state: present
+  become: true
+
+
+- name: create tielearn user
+  ansible.builtin.user:
+    name: tielearn
+    group: tielearn
+    state: present
+  become: true
+
+- name: set tielearn directory ownership
+  ansible.builtin.file:
+    path: /opt/tielearn
+    owner: tielearn
+    group: tielearn
+    state: directory
+    mode: '0755'
+  become: true
+
+
+- name: create datab protected env file
+  ansible.builtin.copy:
+    content: |
+      DB_PASSWORD={{ vault_db_password }}
+      JWT_SECRET={{ vault_jwt_secret }}
+    dest: /opt/tielearn/.env
+    owner: tielearn
+    group: tielearn
+    mode: '0600'
+  become: true
+  no_log: true

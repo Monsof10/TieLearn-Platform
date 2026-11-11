@@ -1,0 +1,5 @@
+---
+- name: tielearn config changed
+  ansible.builtin.debug:
+    msg: "A config change has been detected"
+
