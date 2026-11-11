@@ -1,0 +1,39 @@
+---
+- name: display a tielearn dep message
+  ansible.builtin.debug:
+    msg: "Tielearn ansible is working!"
+
+
+- name: ensure directory exists
+  ansible.builtin.file:
+    path: "{{ app_dir }}"
+    state: directory
+    mode: "0750"
+
+- name: generate tielearn config file
+  ansible.builtin.template:
+    src: app.conf.j2
+    dest: "{{ app_dir }}/app.conf"
+    mode: "0640"
+
+- name: check whether the app dir exists
+  ansible.builtin.stat:
+    path: "{{ app_dir }}"
+  register: app_directory_info
+
+- name: display the app directory exists
+  ansible.builtin.debug:
+    msg: "App directory exists: {{app_directory_info.stat.exists }}"
+
+- name: confirm the app is ready
+  ansible.builtin.debug:
+    msg: "Tielearn directory is ready for config"
+  when: app_directory_info.stat.exists
+
+- name: verify the Vault secret is available
+  ansible.builtin.assert:
+    that:
+      - db_password is defined
+    fail_msg: "The database secret was not loaded."
+    success_msg: "The database secret is loaded."
+

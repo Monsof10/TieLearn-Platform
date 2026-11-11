@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import DashboardLayout from '@/components/DashboardLayout';
 import './UserProfile.scss'; // Reuse styles for now
+import { API_BASE } from '@/utils/api';
 
 const sidebarItems = [
   { label: 'Accueil', href: '/' },
@@ -26,7 +27,7 @@ const UserCourses: React.FC = () => {
         return;
       }
       try {
-        const response = await fetch("http://localhost:5000/api/auth/profile", {
+        const response = await fetch(`${API_BASE}/auth/profile`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

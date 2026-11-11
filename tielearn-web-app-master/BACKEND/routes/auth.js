@@ -39,8 +39,10 @@ router.post('/login', async (req, res) => {
 router.get('/profile', authenticateToken, async (req, res) => {
   try {
     const user = await User.findById(req.user.id);
-    // Add enrolledCourses for demo purposes
-    user.enrolledCourses = ['Introduction to Programming', 'Web Development Basics'];
+    // Fetch real enrollments from database
+    const Enrollment = require('../models/enrollment');
+    const enrollments = await Enrollment.getByUserId(req.user.id);
+    user.enrolledCourses = enrollments.map(e => e.course_id);
     res.json(user);
   } catch (error) {
     res.status(500).json({ message: 'Server error' });

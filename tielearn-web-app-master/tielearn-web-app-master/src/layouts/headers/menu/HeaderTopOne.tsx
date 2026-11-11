@@ -34,7 +34,7 @@ const HeaderTopOne = ({ style }: any) => {
                 <li>Suivez-nous sur :</li>
                 <li>
                   <Link
-                    href="https://www.linkedin.com/company/TieLearn -digital/"
+                    href="https://www.linkedin.com/company/tielearn-digital/?viewAsMember=true"
                     target="_blank"
                   >
                     <i className="fab fa-linkedin-in"></i>
@@ -50,7 +50,7 @@ const HeaderTopOne = ({ style }: any) => {
                 </li>
                 <li>
                   <Link
-                    href="https://www.instagram.com/TieLearn .digital/"
+                    href="https://www.instagram.com/tielearn.digital?igsh=d3pqNXJrazMyYnF2"
                     target="_blank"
                   >
                     <i className="fab fa-instagram"></i>

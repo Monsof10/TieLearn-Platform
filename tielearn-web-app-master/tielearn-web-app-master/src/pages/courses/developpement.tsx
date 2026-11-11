@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import FloatingBubbles from '../../components/FloatingBubbles';
 import HeaderOne from '../../layouts/headers/HeaderOne';
 import CourseAIAssistant from '../../components/Ai/CourseAIAssistant';
@@ -9,6 +9,16 @@ const CheckIcon = () => (
     <path d="M20.285 6.709l-11.39 11.39-5.18-5.18 1.414-1.414 3.766 3.766 9.976-9.976z" />
   </svg>
 );
+
+const roboticsImages = [
+  "20250104_131645.jpg", "20250104_131648.jpg", "20250104_131731.jpg", "20250104_131734.jpg",
+  "20250104_131736.jpg", "20250104_131748.jpg", "20250104_131750.jpg", "20250104_131751.jpg",
+  "20250104_131805.jpg", "20250104_131807.jpg", "20250104_131808.jpg", "20250104_131823.jpg",
+  "20250104_131827.jpg", "20250104_131828.jpg", "20250104_131848.jpg", "20250104_131850.jpg",
+  "20250104_131922.jpg", "20250104_131928.jpg", "20250104_131929.jpg"
+].map(img => `/assets/img/robotics/${img}`);
+
+
 
 const gameDevProgram = {
   beforeTable: [
@@ -297,6 +307,19 @@ const Developpement = () => {
   const [selectedProgram, setSelectedProgram] = useState("Développement des Jeux Vidéo");
   const [isAssistantOpen, setIsAssistantOpen] = useState(false);
 
+  // Slideshow State
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % roboticsImages.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % roboticsImages.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + roboticsImages.length) % roboticsImages.length);
+
   const boldKeywords = [
     "Module",
     "Objectifs",
@@ -409,9 +432,52 @@ const Developpement = () => {
         </motion.button>
       </section>
 
+      {/* Slideshow Section */}
+      <section style={{ padding: '4rem 2rem', textAlign: 'center', backgroundColor: '#f3f4f6' }}>
+        <div style={{ position: 'relative', maxWidth: '450px', margin: '0 auto', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
+          <div style={{ position: 'relative', aspectRatio: '16/9' }}>
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={currentSlide}
+                src={roboticsImages[currentSlide]}
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -100 }}
+                transition={{ duration: 0.5 }}
+                style={{ width: '100%', height: '100%', objectFit: 'contain', position: 'absolute', top: 0, left: 0 }}
+                alt={`Diapositive ${currentSlide + 1}`}
+              />
+            </AnimatePresence>
+
+            {/* Buttons */}
+            <button
+              onClick={prevSlide}
+              style={{ position: 'absolute', left: '10px', top: '50%', transform: 'translateY(-50%)', backgroundColor: 'rgba(0,0,0,0.5)', color: 'white', border: 'none', borderRadius: '50%', width: '40px', height: '40px', cursor: 'pointer', zIndex: 10 }}
+            >
+              ❮
+            </button>
+            <button
+              onClick={nextSlide}
+              style={{ position: 'absolute', right: '10px', top: '50%', transform: 'translateY(-50%)', backgroundColor: 'rgba(0,0,0,0.5)', color: 'white', border: 'none', borderRadius: '50%', width: '40px', height: '40px', cursor: 'pointer', zIndex: 10 }}
+            >
+              ❯
+            </button>
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '8px', padding: '10px', background: 'white' }}>
+            {roboticsImages.map((_, idx) => (
+              <div
+                key={idx}
+                onClick={() => setCurrentSlide(idx)}
+                style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: currentSlide === idx ? '#4f46e5' : '#d1d5db', cursor: 'pointer' }}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Quick Overview Section */}
       <section style={{ padding: '4rem 2rem', maxWidth: 1000, margin: '0 auto', display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', gap: '2rem', backgroundColor: 'white', borderRadius: '12px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}>
-        {[ 
+        {[
           { icon: '🎓', title: 'Cours de haute qualité', desc: 'Nous offrons des cours de qualité supérieure pour vous aider à exceller.' },
           { icon: '👨‍🏫', title: 'Mentor personnel', desc: 'Un mentor dédié pour vous guider tout au long de votre apprentissage.' },
           { icon: '💎', title: 'Support premium', desc: 'Assistance prioritaire pour toutes vos questions et besoins.' },
@@ -615,5 +681,3 @@ const Developpement = () => {
 };
 
 export default Developpement;
-
-

@@ -1,0 +1,12 @@
+services:
+
+  backend:
+    volumes:
+      - ./BACKEND:/app
+      - backend_node_modules:/app/node_modules
+
+    command: npm run dev
+
+
+volumes:
+  backend_node_modules:

@@ -26,5 +26,9 @@ app.use('/api/certificates', require('./routes/certificates'));
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`TieLearn backend - Docker development mode ${PORT}`);
 });
+
+console.log('TieLearn Docker development mode');
+
+console.log('Bind mount test 2');

@@ -1,0 +1,16 @@
+
+---
+- name: prepare TieLearn infrastructure
+  hosts: local
+  connection: local
+
+  vars:
+    app_name: "tielearn"
+    app_dir: "{{ ansible_facts['env']['HOME'] }}/{{ app_name }}-demo"
+    app_environment: "development"
+
+  vars_files:
+    - "{{ playbook_dir }}/roles/tielearn_config/vars/vault.yml"
+
+  roles:
+    - tielearn_config

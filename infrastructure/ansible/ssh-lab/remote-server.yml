@@ -1,0 +1,27 @@
+---
+- name: configure our rem ubu server
+  hosts: webservers
+  gather_facts: true
+
+
+
+  tasks:
+    - name: display the os
+      ansible.builtin.debug:
+        msg: "our os is {{ ansible_facts['distribution'] }}"
+      when: ansible_facts['distribution'] == "Ubuntu"
+
+
+    - name: check vault sec is available
+      ansible.builtin.assert:
+        that:
+          - vault_db_password is defined
+          - vault_db_password | length > 0
+        quiet: true
+
+
+  roles:
+    - nginx
+    - tielearn
+
+   

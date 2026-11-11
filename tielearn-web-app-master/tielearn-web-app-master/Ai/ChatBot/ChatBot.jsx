@@ -1,69 +1,99 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './ChatBot.css';
-import chatbotData from '../../src/data/chatbotskillgro';
+
 import { getOllamaResponse } from '../ollamaUtils';
 
-// Define courses at component scope
+// Define courses at component scope - matching the actual website catalog
 const courses = [
   {
-    id: 'course_sql_injection',
-    text: 'SQL Injection',
-    description: 'Learn about SQL injection attacks and prevention',
-    link: '/Sql-Injection/HomePage'
+    id: 'course_design_graphique',
+    text: 'Design Graphique',
+    description: `📐 **Design Graphique** - Devenez Designer Professionnel
+
+🎯 **Ce que vous allez apprendre :**
+• Maîtriser Adobe Photoshop pour la retouche photo et création visuelle
+• Créer des logos et illustrations vectorielles avec Illustrator
+• Concevoir des documents imprimés professionnels avec InDesign
+• Comprendre les principes du design : couleurs, typographie, composition
+
+💼 **Débouchés professionnels :**
+Designer graphique, Infographiste, Directeur artistique
+
+⏱️ **Idéal pour :** Débutants et créatifs souhaitant professionnaliser leurs compétences`,
+    link: '/courses/design-graphique'
   },
   {
-    id: 'course_spoofing',
-    text: 'Spoofing',
-    description: 'Understanding and preventing spoofing attacks',
-    link: '/Spoofing/HomePage'
+    id: 'course_marketing_digital',
+    text: 'Marketing Digital',
+    description: `📱 **Marketing Digital** - Devenez Expert en Marketing Numérique
+
+🎯 **Ce que vous allez apprendre :**
+• Optimiser votre visibilité sur Google (SEO/SEM)
+• Créer et gérer des campagnes sur les réseaux sociaux
+• Maîtriser l'email marketing et l'automatisation
+• Analyser les performances avec Google Analytics
+• Créer du contenu engageant et des stratégies de branding
+
+💼 **Débouchés professionnels :**
+Community Manager, Responsable Marketing Digital, Consultant SEO
+
+⏱️ **Idéal pour :** Entrepreneurs, marketeurs et communicants`,
+    link: '/courses/marketing-digital'
   },
   {
-    id: 'course_dos_ddos',
-    text: 'DoS and DDoS Attacks',
-    description: 'Learn about denial of service attacks and mitigation',
-    link: '/DosAndDdos/HomePage'
+    id: 'course_developpement',
+    text: 'Développement',
+    description: `💻 **Développement Web** - Créez des Sites et Applications Modernes
+
+🎯 **Ce que vous allez apprendre :**
+• Les fondamentaux : HTML5, CSS3 et JavaScript
+• Créer des sites web responsives et interactifs
+• Utiliser des frameworks modernes (React, Vue.js)
+• Comprendre les bases de données et APIs
+• Déployer vos projets en ligne
+
+💼 **Débouchés professionnels :**
+Développeur Web, Développeur Front-End, Full-Stack Developer
+
+⏱️ **Idéal pour :** Débutants en programmation et reconversion professionnelle`,
+    link: '/courses/developpement'
   },
   {
-    id: 'course_xss',
-    text: 'Cross-Site Scripting',
-    description: 'Understanding XSS vulnerabilities and protection',
-    link: '/CrossSiteScripting/HomePage'
+    id: 'course_microsoft_office',
+    text: 'Microsoft Office',
+    description: `📊 **Microsoft Office** - Maîtrisez la Suite Bureautique Professionnelle
+
+🎯 **Ce que vous allez apprendre :**
+• Word : Créer des documents professionnels et rapports
+• Excel : Formules avancées, tableaux croisés dynamiques, graphiques
+• PowerPoint : Présentations impactantes et storytelling visuel
+• Outlook : Gestion efficace des emails et calendriers
+• Collaboration avec Office 365 et Teams
+
+💼 **Débouchés professionnels :**
+Compétence essentielle pour tous les métiers de bureau
+
+⏱️ **Idéal pour :** Professionnels, étudiants et toute personne en milieu professionnel`,
+    link: '/courses/microsoft-office'
   },
   {
-    id: 'course_forensics',
-    text: 'Forensic Science',
-    description: 'Digital forensics and investigation techniques',
-    link: '/ForensicScience/HomePage'
-  },
-  {
-    id: 'course_user_enum',
-    text: 'User Enumeration',
-    description: 'Learn about user enumeration techniques and prevention',
-    link: '/UserEnumeration/HomePage'
-  },
-  {
-    id: 'course_privesc',
-    text: 'Privilege Escalation',
-    description: 'Understanding privilege escalation attacks',
-    link: '/PrivilegeEscalation/HomePage'
-  },
-  {
-    id: 'course_buffer',
-    text: 'Buffer Overflows',
-    description: 'Learn about buffer overflow vulnerabilities',
-    link: '/BufferOverflows/HomePage'
-  },
-  {
-    id: 'course_ssrf',
-    text: 'Server-Side Request Forgery',
-    description: 'Understanding SSRF attacks and prevention',
-    link: '/ServerSideRequestForgery/HomePage'
-  },
-  {
-    id: 'course_dns',
-    text: 'DNS Poisoning',
-    description: 'Learn about DNS poisoning attacks',
-    link: '/DnsPoisoning/HomePage'
+    id: 'course_ux_ui',
+    text: 'UX/UI',
+    description: `🎯 **UX/UI Design** - Créez des Expériences Utilisateur Exceptionnelles
+
+🎯 **Ce que vous allez apprendre :**
+• Principes de l'expérience utilisateur (UX)
+• Recherche utilisateur et création de personas
+• Design d'interfaces intuitives (UI)
+• Maîtriser Figma et Adobe XD
+• Prototypage et tests utilisateurs
+• Design systems et accessibilité
+
+💼 **Débouchés professionnels :**
+UX Designer, UI Designer, Product Designer
+
+⏱️ **Idéal pour :** Designers, développeurs et chefs de produit`,
+    link: '/courses/ux-ui'
   }
 ];
 
@@ -88,12 +118,12 @@ const ChatBot = () => {
     if (isOpen) {
       setMessages([{
         type: 'bot',
-        text: 'Hi! How can I help you today? Choose from these options or ask me anything:',
+        text: 'Bonjour ! Comment puis-je vous aider aujourd\'hui ? Choisissez parmi ces options ou posez-moi n\'importe quelle question :',
         options: [
-          { id: 'career', text: '💼 Suggest a track based on my career goals' },
-          { id: 'learn', text: '🎓 Help me find something to learn' },
-          { id: 'question', text: '❓ I have a question about a course/track' },
-          { id: 'issue', text: '🔧 I have an issue / need some help' }
+          { id: 'career', text: '💼 Suggérer un parcours selon mes objectifs de carrière' },
+          { id: 'learn', text: '🎓 M\'aider à trouver quelque chose à apprendre' },
+          { id: 'question', text: '❓ J\'ai une question sur un cours/parcours' },
+          { id: 'issue', text: '🔧 J\'ai un problème / besoin d\'aide' }
         ]
       }]);
     }
@@ -105,8 +135,8 @@ const ChatBot = () => {
       const qaSet = chatbotData.qa[category];
       for (const [q, a] of Object.entries(qaSet)) {
         const cleanQuestion = q.replace(/[🔰🎓🧭🧪🛠️🛡️👩‍💻🧠🧾📊🤝🖥️]/g, '').trim().toLowerCase();
-        if (normalizedQuestion.includes(cleanQuestion) || 
-            cleanQuestion.includes(normalizedQuestion)) {
+        if (normalizedQuestion.includes(cleanQuestion) ||
+          cleanQuestion.includes(normalizedQuestion)) {
           return a;
         }
       }
@@ -123,15 +153,15 @@ const ChatBot = () => {
     }));
 
     setMessages(prevMessages => [...prevMessages,
-      {
-        type: 'bot',
-        text: 'Here are our available career paths. Click one to learn more:',
-        options: paths.map(path => ({
-          id: path.id,
-          text: path.text,
-          icon: '🎯'
-        }))
-      }
+    {
+      type: 'bot',
+      text: 'Voici nos parcours de carrière disponibles. Cliquez sur l\'un d\'eux pour en savoir plus :',
+      options: paths.map(path => ({
+        id: path.id,
+        text: path.text,
+        icon: '🎯'
+      }))
+    }
     ]);
   };
 
@@ -141,11 +171,11 @@ const ChatBot = () => {
     if (option.id === 'question') {
       setMessages(prevMessages => [...prevMessages, {
         type: 'bot',
-        text: 'What type of question do you have?',
+        text: 'Quel type de question avez-vous ?',
         options: [
-          { id: 'course_navigation', text: '🔍 Navigation (Find a course)' },
-          { id: 'course_billing', text: '💳 Billing' },
-          { id: 'course_ai_problem', text: '🤖 Problem with AI' }
+          { id: 'course_navigation', text: '🔍 Navigation (Trouver un cours)' },
+          { id: 'course_billing', text: '💳 Facturation' },
+          { id: 'course_ai_problem', text: '🤖 Problème avec l\'IA' }
         ]
       }]);
       return;
@@ -155,7 +185,7 @@ const ChatBot = () => {
       setExpectingCourseSearch(true);
       setMessages(prevMessages => [...prevMessages, {
         type: 'bot',
-        text: 'Please enter the name of the course you\'re looking for:'
+        text: 'Veuillez entrer le nom du cours que vous recherchez :'
       }]);
       return;
     }
@@ -163,7 +193,7 @@ const ChatBot = () => {
     if (option.id === 'course_billing') {
       setMessages(prevMessages => [...prevMessages, {
         type: 'bot',
-        text: 'For billing related questions, please contact our support team at support@cyberhub.com'
+        text: 'Pour les questions relatives à la facturation, veuillez contacter notre équipe d\'assistance à support@cyberhub.com'
       }]);
       return;
     }
@@ -172,7 +202,7 @@ const ChatBot = () => {
       setIsAiMode(true);
       setMessages(prevMessages => [...prevMessages, {
         type: 'bot',
-        text: 'Please describe the AI-related problem you\'re experiencing, and I\'ll help you resolve it.'
+        text: 'Veuillez décrire le problème lié à l\'IA que vous rencontrez, et je vous aiderai à le résoudre.'
       }]);
       return;
     }
@@ -181,8 +211,8 @@ const ChatBot = () => {
       setIsAiMode(true);
       setMessages(prevMessages => [...prevMessages, {
         type: 'bot',
-        text: 'I can help you with any cybersecurity-related questions or issues. Please type your question and I\'ll assist you using our AI system.',
-        options: [{ id: 'consult_ai', text: 'Consult AI Assistant' }]
+        text: 'Je peux vous aider avec toutes vos questions sur nos formations et la plateforme TieLearn. Veuillez taper votre question et je vous assisterai en utilisant notre système d\'IA.',
+        options: [{ id: 'consult_ai', text: 'Consulter l\'assistant IA' }]
       }]);
       return;
     }
@@ -191,43 +221,52 @@ const ChatBot = () => {
       setIsAiMode(true);
       setMessages(prevMessages => [...prevMessages, {
         type: 'bot',
-        text: 'I\'m ready to help! Please type your cybersecurity question or describe your issue, and I\'ll provide expert assistance.'
+        text: 'Je suis prêt à vous aider ! Posez-moi vos questions sur nos cours, la plateforme TieLearn, ou toute question relative à votre formation, et je vous fournirai une assistance personnalisée.'
       }]);
       return;
     }
 
     if (option.id === 'career') {
       const careerGoals = [
-        { id: 'goal_offensive', text: 'Offensive Security' },
-        { id: 'goal_defensive', text: 'Defensive Security' },
-        { id: 'goal_research', text: 'Security Research' },
-        { id: 'goal_management', text: 'Security Management' }
+        { id: 'goal_design', text: '🎨 Design Graphique' },
+        { id: 'goal_marketing', text: '📱 Marketing Digital' },
+        { id: 'goal_development', text: '💻 Développement' },
+        { id: 'goal_office', text: '📊 Microsoft Office' },
+        { id: 'goal_ux_ui', text: '🎯 UX/UI' }
       ];
       setMessages(prevMessages => [...prevMessages, {
         type: 'bot',
-        text: 'Please select your career goal:',
+        text: 'Veuillez sélectionner votre objectif de carrière :',
         options: careerGoals
       }]);
+      return;
+    }
+
+    // Handle career goal selections
+    if (option.id && option.id.startsWith('goal_')) {
+      const goalToCourse = {
+        'goal_design': courses.find(c => c.id === 'course_design_graphique'),
+        'goal_marketing': courses.find(c => c.id === 'course_marketing_digital'),
+        'goal_development': courses.find(c => c.id === 'course_developpement'),
+        'goal_office': courses.find(c => c.id === 'course_microsoft_office'),
+        'goal_ux_ui': courses.find(c => c.id === 'course_ux_ui')
+      };
+
+      const course = goalToCourse[option.id];
+      if (course) {
+        setMessages(prevMessages => [...prevMessages, {
+          type: 'bot',
+          text: `Excellent choix ! Pour ${course.text}, je vous recommande notre cours :\n\n${course.description}`,
+          options: [{ id: `goto_${course.link}`, text: 'Aller à la page du cours' }]
+        }]);
+      }
       return;
     }
 
     if (option.id === 'learn') {
       setMessages(prevMessages => [...prevMessages, {
         type: 'bot',
-        text: 'What are you interested in learning? Choose one:',
-        options: [
-          { id: 'courses', text: 'Courses' },
-          { id: 'ctf', text: 'CTF Challenges' },
-          { id: 'skillpaths', text: 'Skill Paths' }
-        ]
-      }]);
-      return;
-    }
-
-    if (option.id === 'courses') {
-      setMessages(prevMessages => [...prevMessages, {
-        type: 'bot',
-        text: 'Here are all our available courses:',
+        text: 'Voici tous nos cours disponibles :',
         options: courses
       }]);
       return;
@@ -239,8 +278,8 @@ const ChatBot = () => {
       if (course) {
         setMessages(prevMessages => [...prevMessages, {
           type: 'bot',
-          text: `${course.description}\n\nYou can explore this course in detail on the course page.`,
-          options: [{ id: `goto_${course.link}`, text: 'Go to course page' }]
+          text: `${course.description}\n\nVous pouvez explorer ce cours en détail sur la page du cours.`,
+          options: [{ id: `goto_${course.link}`, text: 'Aller à la page du cours' }]
         }]);
       }
       return;
@@ -265,14 +304,14 @@ const ChatBot = () => {
     try {
       if (expectingCourseSearch) {
         const searchQuery = userQuestion.toLowerCase();
-        const matchingCourses = courses.filter(course => 
+        const matchingCourses = courses.filter(course =>
           course.text.toLowerCase().includes(searchQuery)
         );
 
         if (matchingCourses.length > 0) {
           setMessages(prevMessages => [...prevMessages, {
             type: 'bot',
-            text: 'I found these courses that match your search:',
+            text: 'J\'ai trouvé ces cours qui correspondent à votre recherche :',
             options: matchingCourses.map(course => ({
               id: course.id,
               text: course.text,
@@ -282,7 +321,7 @@ const ChatBot = () => {
         } else {
           setMessages(prevMessages => [...prevMessages, {
             type: 'bot',
-            text: 'I couldn\'t find any courses matching your search. Please try different keywords or browse our course catalog.'
+            text: 'Je n\'ai trouvé aucun cours correspondant à votre recherche. Veuillez essayer d\'autres mots-clés ou parcourir notre catalogue de cours.'
           }]);
         }
         setExpectingCourseSearch(false);
@@ -293,8 +332,8 @@ const ChatBot = () => {
           text: response
         }]);
       } else {
-        if (userQuestion.toLowerCase().includes('career') || 
-            userQuestion.toLowerCase().includes('path')) {
+        if (userQuestion.toLowerCase().includes('career') ||
+          userQuestion.toLowerCase().includes('path')) {
           handleCareerPathQuestion(userQuestion);
         } else {
           const predefinedAnswer = findPredefinedAnswer(userQuestion);
@@ -306,8 +345,8 @@ const ChatBot = () => {
           } else {
             setMessages(prevMessages => [...prevMessages, {
               type: 'bot',
-              text: 'I don\'t have a predefined answer for that. Would you like to consult our AI assistant?',
-              options: [{ id: 'consult_ai', text: 'Consult AI Assistant' }]
+              text: 'Je n\'ai pas de réponse prédéfinie pour cela. Souhaitez-vous consulter notre assistant IA ?',
+              options: [{ id: 'consult_ai', text: 'Consulter l\'assistant IA' }]
             }]);
           }
         }
@@ -316,7 +355,7 @@ const ChatBot = () => {
       console.error('Error in handleSendMessage:', error);
       setMessages(prevMessages => [...prevMessages, {
         type: 'bot',
-        text: error.message || 'I apologize, but I encountered an error. Please try asking your question differently.'
+        text: error.message || 'Je m\'excuse, mais j\'ai rencontré une erreur. Veuillez essayer de poser votre question différemment.'
       }]);
     } finally {
       setIsProcessing(false);
@@ -341,7 +380,7 @@ const ChatBot = () => {
       {isOpen && (
         <div className="chatbot-window">
           <div className="chatbot-header">
-            <h3>✨ Chatbot Assistant</h3>
+            <h3>✨ Assistant Chatbot</h3>
             <button className="close-button" onClick={toggleChat}>×</button>
           </div>
           <div className="chatbot-body">
@@ -367,27 +406,27 @@ const ChatBot = () => {
               ))}
               {isProcessing && (
                 <div className="chat-message bot-message">
-                  <div className="typing-indicator">Thinking...</div>
+                  <div className="typing-indicator">Réflexion en cours...</div>
                 </div>
               )}
               <div ref={messagesEndRef} />
             </div>
           </div>
-          
+
           <div className="chat-input">
             <input
               type="text"
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
               onKeyPress={handleKeyPress}
-              placeholder={isProcessing ? "Please wait..." : isAiMode ? "Ask me anything about cybersecurity..." : "Type your question here..."}
+              placeholder={isProcessing ? "Veuillez patienter..." : isAiMode ? "Posez-moi vos questions sur nos cours et formations..." : "Tapez votre question ici..."}
               disabled={isProcessing}
             />
-            <button 
+            <button
               onClick={handleSendMessage}
               disabled={isProcessing || !inputText.trim()}
             >
-              {isProcessing ? '...' : 'Send'}
+              {isProcessing ? '...' : 'Envoyer'}
             </button>
           </div>
         </div>

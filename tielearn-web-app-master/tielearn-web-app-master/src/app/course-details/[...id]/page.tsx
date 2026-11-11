@@ -8,10 +8,11 @@ import Wrapper from "@/layouts/Wrapper";
 export const metadata = {
    title: "Course Details TieLearn  ",
 };
-const index = ({ params }: { params: { id: number } }) => {
+const index = async ({ params }: { params: Promise<{ id: string[] }> }) => {
 
+   const resolvedParams = await params;
    const courses = courses_data;
-   const single_course = courses.find((item) => Number(item.id) === Number(params.id));
+   const single_course = courses.find((item) => Number(item.id) === Number(resolvedParams.id));
 
    return (
       <Wrapper>
